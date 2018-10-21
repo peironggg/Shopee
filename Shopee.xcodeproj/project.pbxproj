@@ -7,21 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F8E289E9E746FAA99278BB6 /* Pods_Shopee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A731D796A5AF477C3BAFB64 /* Pods_Shopee.framework */; };
+		E55D3751217CB28200B67E43 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55D3750217CB28200B67E43 /* RegisterViewController.swift */; };
 		E5E19C30217CA56400E3A02D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E19C2F217CA56400E3A02D /* AppDelegate.swift */; };
-		E5E19C32217CA56400E3A02D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E19C31217CA56400E3A02D /* ViewController.swift */; };
+		E5E19C32217CA56400E3A02D /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E19C31217CA56400E3A02D /* WelcomeViewController.swift */; };
 		E5E19C35217CA56400E3A02D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5E19C33217CA56400E3A02D /* Main.storyboard */; };
 		E5E19C37217CA56600E3A02D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5E19C36217CA56600E3A02D /* Assets.xcassets */; };
 		E5E19C3A217CA56600E3A02D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5E19C38217CA56600E3A02D /* LaunchScreen.storyboard */; };
+		E5E19C42217CA5E700E3A02D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5E19C41217CA5E700E3A02D /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2A731D796A5AF477C3BAFB64 /* Pods_Shopee.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Shopee.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4BB9D2E037DC699D588B2867 /* Pods-Shopee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shopee.release.xcconfig"; path = "Pods/Target Support Files/Pods-Shopee/Pods-Shopee.release.xcconfig"; sourceTree = "<group>"; };
+		9F5A6A620D8AC7528D037D63 /* Pods-Shopee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Shopee.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Shopee/Pods-Shopee.debug.xcconfig"; sourceTree = "<group>"; };
+		E55D3750217CB28200B67E43 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		E5E19C2C217CA56400E3A02D /* Shopee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shopee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5E19C2F217CA56400E3A02D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E5E19C31217CA56400E3A02D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E5E19C31217CA56400E3A02D /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		E5E19C34217CA56400E3A02D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E5E19C36217CA56600E3A02D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E5E19C39217CA56600E3A02D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E5E19C3B217CA56600E3A02D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5E19C41217CA5E700E3A02D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +37,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F8E289E9E746FAA99278BB6 /* Pods_Shopee.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6626C2BCAEE1374E07DAE201 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9F5A6A620D8AC7528D037D63 /* Pods-Shopee.debug.xcconfig */,
+				4BB9D2E037DC699D588B2867 /* Pods-Shopee.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		930E1578860E57FC48E8222F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2A731D796A5AF477C3BAFB64 /* Pods_Shopee.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E5E19C23217CA56400E3A02D = {
 			isa = PBXGroup;
 			children = (
 				E5E19C2E217CA56400E3A02D /* Shopee */,
 				E5E19C2D217CA56400E3A02D /* Products */,
+				6626C2BCAEE1374E07DAE201 /* Pods */,
+				930E1578860E57FC48E8222F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,10 +83,12 @@
 			isa = PBXGroup;
 			children = (
 				E5E19C2F217CA56400E3A02D /* AppDelegate.swift */,
-				E5E19C31217CA56400E3A02D /* ViewController.swift */,
+				E5E19C31217CA56400E3A02D /* WelcomeViewController.swift */,
+				E55D3750217CB28200B67E43 /* RegisterViewController.swift */,
 				E5E19C33217CA56400E3A02D /* Main.storyboard */,
 				E5E19C36217CA56600E3A02D /* Assets.xcassets */,
 				E5E19C38217CA56600E3A02D /* LaunchScreen.storyboard */,
+				E5E19C41217CA5E700E3A02D /* GoogleService-Info.plist */,
 				E5E19C3B217CA56600E3A02D /* Info.plist */,
 			);
 			path = Shopee;
@@ -71,9 +101,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E5E19C3E217CA56600E3A02D /* Build configuration list for PBXNativeTarget "Shopee" */;
 			buildPhases = (
+				6378773268CDAF77D1E8E67B /* [CP] Check Pods Manifest.lock */,
 				E5E19C28217CA56400E3A02D /* Sources */,
 				E5E19C29217CA56400E3A02D /* Frameworks */,
 				E5E19C2A217CA56400E3A02D /* Resources */,
+				7E6D13529F4DE24E7654AA88 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -123,6 +155,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5E19C3A217CA56600E3A02D /* LaunchScreen.storyboard in Resources */,
+				E5E19C42217CA5E700E3A02D /* GoogleService-Info.plist in Resources */,
 				E5E19C37217CA56600E3A02D /* Assets.xcassets in Resources */,
 				E5E19C35217CA56400E3A02D /* Main.storyboard in Resources */,
 			);
@@ -130,12 +163,56 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6378773268CDAF77D1E8E67B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Shopee-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7E6D13529F4DE24E7654AA88 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Shopee/Pods-Shopee-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Shopee/Pods-Shopee-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E5E19C28217CA56400E3A02D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5E19C32217CA56400E3A02D /* ViewController.swift in Sources */,
+				E55D3751217CB28200B67E43 /* RegisterViewController.swift in Sources */,
+				E5E19C32217CA56400E3A02D /* WelcomeViewController.swift in Sources */,
 				E5E19C30217CA56400E3A02D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -280,15 +357,13 @@
 		};
 		E5E19C3F217CA56600E3A02D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F5A6A620D8AC7528D037D63 /* Pods-Shopee.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JS6NFR972X;
 				INFOPLIST_FILE = Shopee/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.peirong.Shopee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -298,15 +373,13 @@
 		};
 		E5E19C40217CA56600E3A02D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4BB9D2E037DC699D588B2867 /* Pods-Shopee.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JS6NFR972X;
 				INFOPLIST_FILE = Shopee/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.peirong.Shopee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
