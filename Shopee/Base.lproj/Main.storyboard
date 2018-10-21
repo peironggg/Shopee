@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="qLl-rW-x9q">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dW1-QI-zic">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -12,7 +12,7 @@
         <!--Welcome-->
         <scene sceneID="W8g-gE-VIV">
             <objects>
-                <viewController id="qLl-rW-x9q" customClass="WelcomeViewController" customModule="Shopee" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="qLl-rW-x9q" customClass="LogInViewController" customModule="Shopee" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="FU2-Rv-KzV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -46,6 +46,7 @@
                                 <state key="normal" title="Log In"/>
                                 <connections>
                                     <action selector="logInPressed:" destination="qLl-rW-x9q" eventType="touchUpInside" id="nLt-LC-Msh"/>
+                                    <segue destination="dW1-QI-zic" kind="presentation" id="f3e-84-hov"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="73c-av-aFr">
@@ -83,11 +84,11 @@
             </objects>
             <point key="canvasLocation" x="-583.20000000000005" y="-25.637181409295355"/>
         </scene>
-        <!--Register View Controller-->
+        <!--Sign Up View Controller-->
         <scene sceneID="Eo8-kI-3Bg">
             <objects>
-                <viewController id="3hS-oh-wBk" customClass="RegisterViewController" customModule="Shopee" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="9kR-lK-rnC" customClass="re">
+                <viewController id="3hS-oh-wBk" customClass="SignUpViewController" customModule="Shopee" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9kR-lK-rnC" customClass="re">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -120,25 +121,30 @@
                                 <state key="normal" title="Register"/>
                                 <connections>
                                     <action selector="registerButtonPressed:" destination="3hS-oh-wBk" eventType="touchUpInside" id="JP4-55-TCT"/>
+                                    <segue destination="dW1-QI-zic" kind="presentation" id="eif-2c-PsQ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y1j-nA-rxP">
-                                <rect key="frame" x="124" y="563" width="126" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y1j-nA-rxP">
+                                <rect key="frame" x="124.5" y="563" width="126" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="7Gx-gi-QFB"/>
-                                    <constraint firstAttribute="width" constant="126" id="sK0-4d-MNm"/>
+                                    <constraint firstAttribute="height" constant="30" id="JMo-Yu-7v2"/>
+                                    <constraint firstAttribute="width" constant="126" id="lft-dY-kaR"/>
                                 </constraints>
                                 <state key="normal" title="Have An Account?"/>
+                                <connections>
+                                    <segue destination="qLl-rW-x9q" kind="show" id="Jzg-5o-8Eo"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="HaG-6V-Tdq" firstAttribute="centerX" secondItem="9kR-lK-rnC" secondAttribute="centerX" id="0hr-ub-Kqi"/>
                             <constraint firstItem="HaG-6V-Tdq" firstAttribute="top" secondItem="XhE-CF-Nx8" secondAttribute="top" constant="106" id="71d-tM-rps"/>
-                            <constraint firstItem="XhE-CF-Nx8" firstAttribute="bottom" secondItem="Y1j-nA-rxP" secondAttribute="bottom" constant="74" id="FH7-4m-lSD"/>
-                            <constraint firstItem="Y1j-nA-rxP" firstAttribute="centerY" secondItem="9kR-lK-rnC" secondAttribute="centerY" id="KiA-fw-Qjl"/>
+                            <constraint firstItem="XhE-CF-Nx8" firstAttribute="bottom" secondItem="Y1j-nA-rxP" secondAttribute="bottom" constant="74" id="GAy-kJ-dJN"/>
                             <constraint firstItem="b1d-Cf-cRY" firstAttribute="centerX" secondItem="9kR-lK-rnC" secondAttribute="centerX" id="Rft-jp-KLX"/>
+                            <constraint firstItem="Y1j-nA-rxP" firstAttribute="centerX" secondItem="9kR-lK-rnC" secondAttribute="centerX" id="bC0-mz-99p"/>
                             <constraint firstItem="BBG-9G-Ibi" firstAttribute="top" secondItem="b1d-Cf-cRY" secondAttribute="bottom" constant="46" id="jxf-5K-PLc"/>
+                            <constraint firstItem="Y1j-nA-rxP" firstAttribute="top" secondItem="BBG-9G-Ibi" secondAttribute="bottom" constant="271" id="qwE-yo-00w"/>
                             <constraint firstItem="b1d-Cf-cRY" firstAttribute="top" secondItem="HaG-6V-Tdq" secondAttribute="bottom" constant="30" id="wPO-yY-YSP"/>
                             <constraint firstItem="BBG-9G-Ibi" firstAttribute="centerX" secondItem="9kR-lK-rnC" secondAttribute="centerX" id="yjd-fO-RYf"/>
                         </constraints>
@@ -153,5 +159,81 @@
             </objects>
             <point key="canvasLocation" x="384.80000000000001" y="-26.53673163418291"/>
         </scene>
+        <!--Orders-->
+        <scene sceneID="gJe-VG-wEH">
+            <objects>
+                <viewController id="oco-GT-2sr" customClass="OrdersViewController" customModule="Shopee" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="taz-tN-eRW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="JD6-Ql-Rhw"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Orders" image="gift" selectedImage="gift" id="4NW-GF-Rtd"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="omQ-E7-aiS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2206" y="305"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="hU9-sF-fEv">
+            <objects>
+                <viewController id="GhZ-wj-l7I" customClass="SettingsViewController" customModule="Shopee" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZHe-5o-OTU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="RKr-mk-2MS"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Settings" image="settings" selectedImage="settings" id="ZD7-4l-EYs"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5EN-gb-Oud" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2206" y="988"/>
+        </scene>
+        <!--Home-->
+        <scene sceneID="a3n-MR-fgL">
+            <objects>
+                <viewController id="UK2-Q3-qAB" customClass="HomeViewController" customModule="Shopee" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8yy-WP-0Gr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="OaZ-e3-Kzy"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Home" image="home" selectedImage="home" id="LEF-wg-W7m"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="soN-74-SSd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2206" y="-359"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="6u5-YR-twj">
+            <objects>
+                <tabBarController id="dW1-QI-zic" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="T96-cY-z2B">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="UK2-Q3-qAB" kind="relationship" relationship="viewControllers" id="Y7w-eH-9ws"/>
+                        <segue destination="oco-GT-2sr" kind="relationship" relationship="viewControllers" id="Hkt-eQ-V6E"/>
+                        <segue destination="GhZ-wj-l7I" kind="relationship" relationship="viewControllers" id="RDN-Kj-juc"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YHG-d9-eEx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1252" y="-27"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="gift" width="30" height="30"/>
+        <image name="home" width="30" height="30"/>
+        <image name="settings" width="30" height="30"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Jzg-5o-8Eo"/>
+        <segue reference="eif-2c-PsQ"/>
+    </inferredMetricsTieBreakers>
 </document>
