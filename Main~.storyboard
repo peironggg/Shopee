@@ -159,7 +159,7 @@
             </objects>
             <point key="canvasLocation" x="384.80000000000001" y="-26.53673163418291"/>
         </scene>
-        <!--Orders-->
+        <!--Orders View Controller-->
         <scene sceneID="gJe-VG-wEH">
             <objects>
                 <viewController id="oco-GT-2sr" customClass="OrdersViewController" customModule="Shopee" customModuleProvider="target" sceneMemberID="viewController">
@@ -169,13 +169,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="JD6-Ql-Rhw"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Orders" image="gift" selectedImage="gift" id="4NW-GF-Rtd"/>
+                    <tabBarItem key="tabBarItem" title="" image="gift" selectedImage="gift" id="4NW-GF-Rtd">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="omQ-E7-aiS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2206" y="305"/>
         </scene>
-        <!--Settings-->
+        <!--Settings View Controller-->
         <scene sceneID="hU9-sF-fEv">
             <objects>
                 <viewController id="GhZ-wj-l7I" customClass="SettingsViewController" customModule="Shopee" customModuleProvider="target" sceneMemberID="viewController">
@@ -185,27 +187,124 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="RKr-mk-2MS"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" image="settings" selectedImage="settings" id="ZD7-4l-EYs"/>
+                    <tabBarItem key="tabBarItem" title="" image="settings" selectedImage="settings" id="ZD7-4l-EYs">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5EN-gb-Oud" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2206" y="988"/>
         </scene>
-        <!--Home-->
+        <!--Home View Controller-->
         <scene sceneID="a3n-MR-fgL">
             <objects>
                 <viewController id="UK2-Q3-qAB" customClass="HomeViewController" customModule="Shopee" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8yy-WP-0Gr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kbx-7B-4gv">
+                                <rect key="frame" x="0.0" y="558" width="375" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="ilU-9V-YOK"/>
+                                </constraints>
+                                <state key="normal" title="Submit New Order"/>
+                                <connections>
+                                    <action selector="submitOrderPressed:" destination="UK2-Q3-qAB" eventType="touchUpInside" id="xin-Bu-6WJ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jnE-1y-tUd">
+                                <rect key="frame" x="0.0" y="498" width="375" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="wf5-AU-cl8"/>
+                                </constraints>
+                                <state key="normal" title="Submit Payment"/>
+                                <connections>
+                                    <action selector="submitPaymentPressed:" destination="UK2-Q3-qAB" eventType="touchUpInside" id="1aP-uT-Dv2"/>
+                                    <segue destination="RWA-jr-SNu" kind="show" id="fds-CZ-1Rf"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="go7-mq-ZZn">
+                                <rect key="frame" x="0.0" y="64" width="375" height="434"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="go7-mq-ZZn" firstAttribute="top" secondItem="OaZ-e3-Kzy" secondAttribute="top" id="4AO-hB-LZm"/>
+                            <constraint firstItem="OaZ-e3-Kzy" firstAttribute="trailing" secondItem="Kbx-7B-4gv" secondAttribute="trailing" id="CiB-M2-ryJ"/>
+                            <constraint firstItem="go7-mq-ZZn" firstAttribute="leading" secondItem="OaZ-e3-Kzy" secondAttribute="leading" id="DAz-Rk-GVN"/>
+                            <constraint firstItem="Kbx-7B-4gv" firstAttribute="leading" secondItem="OaZ-e3-Kzy" secondAttribute="leading" id="KFf-Oy-Tni"/>
+                            <constraint firstItem="OaZ-e3-Kzy" firstAttribute="bottom" secondItem="Kbx-7B-4gv" secondAttribute="bottom" id="Vs0-cz-G2n"/>
+                            <constraint firstItem="jnE-1y-tUd" firstAttribute="top" secondItem="go7-mq-ZZn" secondAttribute="bottom" id="ZYd-zY-hf0"/>
+                            <constraint firstItem="Kbx-7B-4gv" firstAttribute="top" secondItem="jnE-1y-tUd" secondAttribute="bottom" id="l1T-pV-9Ta"/>
+                            <constraint firstItem="go7-mq-ZZn" firstAttribute="trailing" secondItem="OaZ-e3-Kzy" secondAttribute="trailing" id="mje-zm-gvf"/>
+                            <constraint firstItem="jnE-1y-tUd" firstAttribute="leading" secondItem="OaZ-e3-Kzy" secondAttribute="leading" id="q5P-p8-SbA"/>
+                            <constraint firstItem="OaZ-e3-Kzy" firstAttribute="trailing" secondItem="jnE-1y-tUd" secondAttribute="trailing" id="xAZ-KG-DNj"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="OaZ-e3-Kzy"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Home" image="home" selectedImage="home" id="LEF-wg-W7m"/>
+                    <navigationItem key="navigationItem" id="7PE-CP-I76"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="soN-74-SSd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2206" y="-359"/>
+            <point key="canvasLocation" x="3144.8000000000002" y="-359.37031484257875"/>
+        </scene>
+        <!--Submit Payment View Controller-->
+        <scene sceneID="WrB-Lu-eZZ">
+            <objects>
+                <viewController id="RWA-jr-SNu" customClass="SubmitPaymentViewController" customModule="Shopee" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3Mz-H6-3ZM">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Amount" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7fU-bK-Cbx">
+                                <rect key="frame" x="0.0" y="64" width="375" height="100"/>
+                                <color key="backgroundColor" red="0.98431372549999996" green="0.76470588240000004" blue="0.25098039220000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="SYN-wc-n3b"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Paynow Name/Bank Transaction ID" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xxf-Ne-T0m">
+                                <rect key="frame" x="0.0" y="184" width="375" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="aUa-I4-2ba"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IKW-bf-5rY">
+                                <rect key="frame" x="0.0" y="558" width="375" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="EDP-ax-rHM"/>
+                                </constraints>
+                                <state key="normal" title="Submit"/>
+                                <connections>
+                                    <action selector="actualSubmitPaymentPressed:" destination="RWA-jr-SNu" eventType="touchUpInside" id="B8l-Bf-hj6"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="7fU-bK-Cbx" firstAttribute="top" secondItem="2BK-BQ-Ori" secondAttribute="top" id="49U-RI-YVY"/>
+                            <constraint firstItem="xxf-Ne-T0m" firstAttribute="top" secondItem="7fU-bK-Cbx" secondAttribute="bottom" constant="20" id="LpW-dw-Krd"/>
+                            <constraint firstItem="IKW-bf-5rY" firstAttribute="leading" secondItem="2BK-BQ-Ori" secondAttribute="leading" id="PjV-uu-Skw"/>
+                            <constraint firstItem="2BK-BQ-Ori" firstAttribute="trailing" secondItem="xxf-Ne-T0m" secondAttribute="trailing" id="Ptb-Ba-q3g"/>
+                            <constraint firstItem="7fU-bK-Cbx" firstAttribute="trailing" secondItem="2BK-BQ-Ori" secondAttribute="trailing" id="SBU-La-kVb"/>
+                            <constraint firstItem="2BK-BQ-Ori" firstAttribute="trailing" secondItem="IKW-bf-5rY" secondAttribute="trailing" id="ar4-mI-brL"/>
+                            <constraint firstItem="7fU-bK-Cbx" firstAttribute="leading" secondItem="2BK-BQ-Ori" secondAttribute="leading" id="doi-t1-xS5"/>
+                            <constraint firstItem="2BK-BQ-Ori" firstAttribute="bottom" secondItem="IKW-bf-5rY" secondAttribute="bottom" id="kfm-Qv-JKg"/>
+                            <constraint firstItem="xxf-Ne-T0m" firstAttribute="leading" secondItem="2BK-BQ-Ori" secondAttribute="leading" id="yPe-OM-C4x"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="2BK-BQ-Ori"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o0V-wO-lSA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4064.8000000000002" y="-359.37031484257875"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="6u5-YR-twj">
@@ -217,7 +316,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="UK2-Q3-qAB" kind="relationship" relationship="viewControllers" id="Y7w-eH-9ws"/>
+                        <segue destination="egr-GX-7eg" kind="relationship" relationship="viewControllers" id="Y7w-eH-9ws"/>
                         <segue destination="oco-GT-2sr" kind="relationship" relationship="viewControllers" id="Hkt-eQ-V6E"/>
                         <segue destination="GhZ-wj-l7I" kind="relationship" relationship="viewControllers" id="RDN-Kj-juc"/>
                     </connections>
@@ -225,6 +324,27 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YHG-d9-eEx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1252" y="-27"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="f3U-fE-wjz">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="egr-GX-7eg" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="home" selectedImage="home" id="LEF-wg-W7m">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Ovi-Cx-ws9">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="UK2-Q3-qAB" kind="relationship" relationship="rootViewController" id="uwx-ya-kES"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="05g-pK-vh0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2205.5999999999999" y="-359.37031484257875"/>
         </scene>
     </scenes>
     <resources>

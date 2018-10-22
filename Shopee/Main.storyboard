@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Orders View Controller-->
+        <scene sceneID="gJe-VG-wEH">
+            <objects>
+                <viewController id="oco-GT-2sr" customClass="OrdersViewController" customModule="Shopee" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="taz-tN-eRW">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="JD6-Ql-Rhw"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="gift" selectedImage="gift" id="4NW-GF-Rtd">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="omQ-E7-aiS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-850" y="-138"/>
+        </scene>
+        <!--Settings View Controller-->
+        <scene sceneID="hU9-sF-fEv">
+            <objects>
+                <viewController id="GhZ-wj-l7I" customClass="SettingsViewController" customModule="Shopee" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZHe-5o-OTU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="RKr-mk-2MS"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="settings" selectedImage="settings" id="ZD7-4l-EYs">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                    </tabBarItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5EN-gb-Oud" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-540" y="565"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="6u5-YR-twj">
+            <objects>
+                <tabBarController storyboardIdentifier="TabBarID" id="dW1-QI-zic" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="T96-cY-z2B">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="wsq-jk-d2t" kind="relationship" relationship="viewControllers" id="Y7w-eH-9ws"/>
+                        <segue destination="oco-GT-2sr" kind="relationship" relationship="viewControllers" id="Hkt-eQ-V6E"/>
+                        <segue destination="GhZ-wj-l7I" kind="relationship" relationship="viewControllers" id="RDN-Kj-juc"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YHG-d9-eEx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1252" y="-27"/>
+        </scene>
+        <!--HomeID-->
+        <scene sceneID="1lk-Cg-l2V">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="HomeID" id="wsq-jk-d2t" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="wfh-tI-lXE"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6Fy-OM-Icc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2205.5999999999999" y="-359.37031484257875"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="gift" width="30" height="30"/>
+        <image name="settings" width="30" height="30"/>
+    </resources>
+</document>

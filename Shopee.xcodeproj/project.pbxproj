@@ -12,9 +12,13 @@
 		E55D3753217CCF3C00B67E43 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55D3752217CCF3C00B67E43 /* HomeViewController.swift */; };
 		E55D3755217CCF5200B67E43 /* OrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55D3754217CCF5200B67E43 /* OrdersViewController.swift */; };
 		E55D3757217CCF5C00B67E43 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55D3756217CCF5C00B67E43 /* SettingsViewController.swift */; };
+		E55D3759217D58E000B67E43 /* SubmitPaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55D3758217D58E000B67E43 /* SubmitPaymentViewController.swift */; };
+		E55D375C217D643700B67E43 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E55D375B217D643700B67E43 /* Main.storyboard */; };
+		E55D3761217DBC7200B67E43 /* SubmitOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55D3760217DBC7200B67E43 /* SubmitOrderViewController.swift */; };
+		E55D3765217DBD4700B67E43 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E55D3764217DBD4700B67E43 /* Home.storyboard */; };
 		E5E19C30217CA56400E3A02D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E19C2F217CA56400E3A02D /* AppDelegate.swift */; };
 		E5E19C32217CA56400E3A02D /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E19C31217CA56400E3A02D /* LogInViewController.swift */; };
-		E5E19C35217CA56400E3A02D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5E19C33217CA56400E3A02D /* Main.storyboard */; };
+		E5E19C35217CA56400E3A02D /* Start.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5E19C33217CA56400E3A02D /* Start.storyboard */; };
 		E5E19C37217CA56600E3A02D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5E19C36217CA56600E3A02D /* Assets.xcassets */; };
 		E5E19C3A217CA56600E3A02D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5E19C38217CA56600E3A02D /* LaunchScreen.storyboard */; };
 		E5E19C42217CA5E700E3A02D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5E19C41217CA5E700E3A02D /* GoogleService-Info.plist */; };
@@ -28,10 +32,15 @@
 		E55D3752217CCF3C00B67E43 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		E55D3754217CCF5200B67E43 /* OrdersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersViewController.swift; sourceTree = "<group>"; };
 		E55D3756217CCF5C00B67E43 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		E55D3758217D58E000B67E43 /* SubmitPaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitPaymentViewController.swift; sourceTree = "<group>"; };
+		E55D375B217D643700B67E43 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		E55D375D217D853200B67E43 /* Shopee.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Shopee.entitlements; sourceTree = "<group>"; };
+		E55D3760217DBC7200B67E43 /* SubmitOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitOrderViewController.swift; sourceTree = "<group>"; };
+		E55D3764217DBD4700B67E43 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		E5E19C2C217CA56400E3A02D /* Shopee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shopee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5E19C2F217CA56400E3A02D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5E19C31217CA56400E3A02D /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
-		E5E19C34217CA56400E3A02D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E5E19C34217CA56400E3A02D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Start.storyboard; sourceTree = "<group>"; };
 		E5E19C36217CA56600E3A02D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E5E19C39217CA56600E3A02D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E5E19C3B217CA56600E3A02D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -67,6 +76,25 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E55D3762217DBC7A00B67E43 /* Home VCs */ = {
+			isa = PBXGroup;
+			children = (
+				E55D3752217CCF3C00B67E43 /* HomeViewController.swift */,
+				E55D3758217D58E000B67E43 /* SubmitPaymentViewController.swift */,
+				E55D3760217DBC7200B67E43 /* SubmitOrderViewController.swift */,
+			);
+			path = "Home VCs";
+			sourceTree = "<group>";
+		};
+		E55D3763217DBC8E00B67E43 /* Start VCs */ = {
+			isa = PBXGroup;
+			children = (
+				E5E19C31217CA56400E3A02D /* LogInViewController.swift */,
+				E55D3750217CB28200B67E43 /* SignUpViewController.swift */,
+			);
+			path = "Start VCs";
+			sourceTree = "<group>";
+		};
 		E5E19C23217CA56400E3A02D = {
 			isa = PBXGroup;
 			children = (
@@ -88,13 +116,15 @@
 		E5E19C2E217CA56400E3A02D /* Shopee */ = {
 			isa = PBXGroup;
 			children = (
+				E55D375D217D853200B67E43 /* Shopee.entitlements */,
 				E5E19C2F217CA56400E3A02D /* AppDelegate.swift */,
-				E5E19C31217CA56400E3A02D /* LogInViewController.swift */,
-				E55D3750217CB28200B67E43 /* SignUpViewController.swift */,
-				E55D3752217CCF3C00B67E43 /* HomeViewController.swift */,
+				E55D3763217DBC8E00B67E43 /* Start VCs */,
+				E55D3762217DBC7A00B67E43 /* Home VCs */,
 				E55D3754217CCF5200B67E43 /* OrdersViewController.swift */,
 				E55D3756217CCF5C00B67E43 /* SettingsViewController.swift */,
-				E5E19C33217CA56400E3A02D /* Main.storyboard */,
+				E5E19C33217CA56400E3A02D /* Start.storyboard */,
+				E55D375B217D643700B67E43 /* Main.storyboard */,
+				E55D3764217DBD4700B67E43 /* Home.storyboard */,
 				E5E19C36217CA56600E3A02D /* Assets.xcassets */,
 				E5E19C38217CA56600E3A02D /* LaunchScreen.storyboard */,
 				E5E19C41217CA5E700E3A02D /* GoogleService-Info.plist */,
@@ -137,6 +167,11 @@
 				TargetAttributes = {
 					E5E19C2B217CA56400E3A02D = {
 						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -164,9 +199,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5E19C3A217CA56600E3A02D /* LaunchScreen.storyboard in Resources */,
+				E55D375C217D643700B67E43 /* Main.storyboard in Resources */,
 				E5E19C42217CA5E700E3A02D /* GoogleService-Info.plist in Resources */,
+				E55D3765217DBD4700B67E43 /* Home.storyboard in Resources */,
 				E5E19C37217CA56600E3A02D /* Assets.xcassets in Resources */,
-				E5E19C35217CA56400E3A02D /* Main.storyboard in Resources */,
+				E5E19C35217CA56400E3A02D /* Start.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,14 +235,18 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Shopee/Pods-Shopee-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -221,9 +262,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E55D3755217CCF5200B67E43 /* OrdersViewController.swift in Sources */,
+				E55D3761217DBC7200B67E43 /* SubmitOrderViewController.swift in Sources */,
 				E55D3751217CB28200B67E43 /* SignUpViewController.swift in Sources */,
 				E5E19C32217CA56400E3A02D /* LogInViewController.swift in Sources */,
 				E5E19C30217CA56400E3A02D /* AppDelegate.swift in Sources */,
+				E55D3759217D58E000B67E43 /* SubmitPaymentViewController.swift in Sources */,
 				E55D3753217CCF3C00B67E43 /* HomeViewController.swift in Sources */,
 				E55D3757217CCF5C00B67E43 /* SettingsViewController.swift in Sources */,
 			);
@@ -232,12 +275,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		E5E19C33217CA56400E3A02D /* Main.storyboard */ = {
+		E5E19C33217CA56400E3A02D /* Start.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				E5E19C34217CA56400E3A02D /* Base */,
 			);
-			name = Main.storyboard;
+			name = Start.storyboard;
 			sourceTree = "<group>";
 		};
 		E5E19C38217CA56600E3A02D /* LaunchScreen.storyboard */ = {
@@ -372,6 +415,7 @@
 			baseConfigurationReference = 9F5A6A620D8AC7528D037D63 /* Pods-Shopee.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Shopee/Shopee.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JS6NFR972X;
 				INFOPLIST_FILE = Shopee/Info.plist;
@@ -391,6 +435,7 @@
 			baseConfigurationReference = 4BB9D2E037DC699D588B2867 /* Pods-Shopee.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Shopee/Shopee.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JS6NFR972X;
 				INFOPLIST_FILE = Shopee/Info.plist;
