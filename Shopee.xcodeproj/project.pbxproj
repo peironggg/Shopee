@@ -16,6 +16,8 @@
 		E55D375C217D643700B67E43 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E55D375B217D643700B67E43 /* Main.storyboard */; };
 		E55D3761217DBC7200B67E43 /* SubmitOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55D3760217DBC7200B67E43 /* SubmitOrderViewController.swift */; };
 		E55D3765217DBD4700B67E43 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E55D3764217DBD4700B67E43 /* Home.storyboard */; };
+		E55D376A217EB3A200B67E43 /* OrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55D3768217EB3A200B67E43 /* OrderCell.swift */; };
+		E55D376B217EB3A200B67E43 /* OrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E55D3769217EB3A200B67E43 /* OrderCell.xib */; };
 		E5E19C30217CA56400E3A02D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E19C2F217CA56400E3A02D /* AppDelegate.swift */; };
 		E5E19C32217CA56400E3A02D /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E19C31217CA56400E3A02D /* LogInViewController.swift */; };
 		E5E19C35217CA56400E3A02D /* Start.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5E19C33217CA56400E3A02D /* Start.storyboard */; };
@@ -37,6 +39,8 @@
 		E55D375D217D853200B67E43 /* Shopee.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Shopee.entitlements; sourceTree = "<group>"; };
 		E55D3760217DBC7200B67E43 /* SubmitOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitOrderViewController.swift; sourceTree = "<group>"; };
 		E55D3764217DBD4700B67E43 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		E55D3768217EB3A200B67E43 /* OrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCell.swift; sourceTree = "<group>"; };
+		E55D3769217EB3A200B67E43 /* OrderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderCell.xib; sourceTree = "<group>"; };
 		E5E19C2C217CA56400E3A02D /* Shopee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shopee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5E19C2F217CA56400E3A02D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5E19C31217CA56400E3A02D /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +99,15 @@
 			path = "Start VCs";
 			sourceTree = "<group>";
 		};
+		E55D376C217EB3AE00B67E43 /* Cell VCs */ = {
+			isa = PBXGroup;
+			children = (
+				E55D3768217EB3A200B67E43 /* OrderCell.swift */,
+				E55D3769217EB3A200B67E43 /* OrderCell.xib */,
+			);
+			path = "Cell VCs";
+			sourceTree = "<group>";
+		};
 		E5E19C23217CA56400E3A02D = {
 			isa = PBXGroup;
 			children = (
@@ -121,6 +134,7 @@
 				E55D3763217DBC8E00B67E43 /* Start VCs */,
 				E55D3762217DBC7A00B67E43 /* Home VCs */,
 				E55D3754217CCF5200B67E43 /* OrdersViewController.swift */,
+				E55D376C217EB3AE00B67E43 /* Cell VCs */,
 				E55D3756217CCF5C00B67E43 /* SettingsViewController.swift */,
 				E5E19C33217CA56400E3A02D /* Start.storyboard */,
 				E55D375B217D643700B67E43 /* Main.storyboard */,
@@ -198,6 +212,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E55D376B217EB3A200B67E43 /* OrderCell.xib in Resources */,
 				E5E19C3A217CA56600E3A02D /* LaunchScreen.storyboard in Resources */,
 				E55D375C217D643700B67E43 /* Main.storyboard in Resources */,
 				E5E19C42217CA5E700E3A02D /* GoogleService-Info.plist in Resources */,
@@ -265,6 +280,7 @@
 				E55D3761217DBC7200B67E43 /* SubmitOrderViewController.swift in Sources */,
 				E55D3751217CB28200B67E43 /* SignUpViewController.swift in Sources */,
 				E5E19C32217CA56400E3A02D /* LogInViewController.swift in Sources */,
+				E55D376A217EB3A200B67E43 /* OrderCell.swift in Sources */,
 				E5E19C30217CA56400E3A02D /* AppDelegate.swift in Sources */,
 				E55D3759217D58E000B67E43 /* SubmitPaymentViewController.swift in Sources */,
 				E55D3753217CCF3C00B67E43 /* HomeViewController.swift in Sources */,

@@ -37,7 +37,7 @@ class SubmitPaymentViewController: UIViewController {
             self.present(alert, animated: true, completion: nil)
         } else {
             let ref = Database.database().reference().child("users").child((Auth.auth().currentUser?.uid)!).child("payments")
-            ref.childByAutoId().setValue(["amount":amountTextField.text,"paymentID":paymentTextField.text])
+            ref.childByAutoId().setValue(["amount":amountTextField.text!,"paymentID":paymentTextField.text!])
             navigationController?.popViewController(animated: true)
         }
         
