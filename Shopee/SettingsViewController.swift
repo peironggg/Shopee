@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import JGProgressHUD
 
 class SettingsViewController: UIViewController {
 
@@ -21,6 +22,20 @@ class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        ref.child("users").child(uid!).observe(.value) { (snapshot) in
+            let postDict = snapshot.value as? [String : AnyObject] ?? [:]
+            print(postDict)
+            if let email = postDict["email"] {
+                self.emailTextField.text = email as? String
+            }
+            if let address = postDict["address"] {
+                self.addressTextField.text = address as? String
+            }
+            if let phone = postDict["phone"] {
+                self.phoneTextField.text = phone as? String
+            }
+
+        }
         
     }
     
@@ -32,9 +47,14 @@ class SettingsViewController: UIViewController {
             alert.addAction(alertAction)
             self.present(alert, animated: true, completion: nil)
             } else {
+            let hud = JGProgressHUD(style: .dark)
+            hud.textLabel.text = "Success"
+            hud.indicatorView = JGProgressHUDSuccessIndicatorView()
+            hud.show(in: self.view)
             ref.child("users/\(uid!)/email").setValue(emailTextField.text!)
             ref.child("users/\(uid!)/address").setValue(addressTextField.text!)
             ref.child("users/\(uid!)/phone").setValue(phoneTextField.text!)
+            hud.dismiss()
         }
     }
     
