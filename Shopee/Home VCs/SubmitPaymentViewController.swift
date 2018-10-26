@@ -10,6 +10,7 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 import ChameleonFramework
+import JGProgressHUD
 
 class SubmitPaymentViewController: UIViewController {
 
@@ -36,9 +37,15 @@ class SubmitPaymentViewController: UIViewController {
             alert.addAction(alertAction)
             self.present(alert, animated: true, completion: nil)
         } else {
+            let hud = JGProgressHUD(style: .dark)
+            hud.textLabel.text = "Success"
+            hud.indicatorView = JGProgressHUDSuccessIndicatorView()
+            hud.show(in: self.view)
             let ref = Database.database().reference().child("users").child((Auth.auth().currentUser?.uid)!).child("payments")
             ref.childByAutoId().setValue(["amount":amountTextField.text!,"paymentID":paymentTextField.text!])
+            hud.dismiss()
             navigationController?.popViewController(animated: true)
+
         }
         
     }

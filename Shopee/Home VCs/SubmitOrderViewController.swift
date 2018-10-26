@@ -10,6 +10,7 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 import ChameleonFramework
+import JGProgressHUD
 
 class SubmitOrderViewController: UIViewController {
     
@@ -32,8 +33,13 @@ class SubmitOrderViewController: UIViewController {
     @IBAction func submitOrderPressed(_ sender: Any) {
         
         if urlTextField.text?.isEmpty == false && priceTextField.text?.isEmpty == false && quantityTextField.text?.isEmpty == false && remarksTextField.text?.isEmpty == false {
+            let hud = JGProgressHUD(style: .dark)
+            hud.textLabel.text = "Success"
+            hud.indicatorView = JGProgressHUDSuccessIndicatorView()
+            hud.show(in: self.view)
         let ref = Database.database().reference().child("users").child((Auth.auth().currentUser?.uid)!).child("orders").childByAutoId()
     ref.setValue(["url":urlTextField.text!,"price":priceTextField.text!,"quantity":quantityTextField.text!,"remarks":remarksTextField.text!,"status":false])
+            hud.dismiss()
         navigationController?.popViewController(animated: true)
         } else {
             let alert = UIAlertController(title: "Error", message: "Please fill in the blanks.", preferredStyle: .alert)

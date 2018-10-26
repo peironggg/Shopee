@@ -17,10 +17,14 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = HexColor("#e8f4f8")
+        
         paymentButton.backgroundColor = FlatOrange()
         paymentButton.setTitleColor(FlatWhite(), for: .normal)
+        paymentButton.titleLabel?.font = UIFont(name: "Roboto", size: 20)
+        
         orderButton.backgroundColor = FlatOrangeDark()
         orderButton.setTitleColor(FlatWhite(), for: .normal)
+        orderButton.titleLabel?.font = UIFont(name: "Roboto", size: 20)
     }
     
 

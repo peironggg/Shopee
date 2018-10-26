@@ -88,10 +88,20 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tg7-jf-S3u">
-                                <rect key="frame" x="0.0" y="543" width="375" height="75"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n1L-KB-DT7">
+                                <rect key="frame" x="16" y="524" width="343" height="65"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="75" id="9Uw-8O-keD"/>
+                                    <constraint firstAttribute="height" constant="65" id="5pt-Gs-Sco"/>
+                                </constraints>
+                                <state key="normal" title="Sign Out"/>
+                                <connections>
+                                    <action selector="signOutPressed:" destination="GhZ-wj-l7I" eventType="touchUpInside" id="DfJ-s2-liK"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tg7-jf-S3u">
+                                <rect key="frame" x="16" y="397" width="343" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="SNl-Ja-QZ2"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <state key="normal" title="Save"/>
@@ -106,17 +116,20 @@
                             <constraint firstItem="R6y-1w-8Ym" firstAttribute="leading" secondItem="ZHe-5o-OTU" secondAttribute="leadingMargin" id="4NC-BJ-XMZ"/>
                             <constraint firstItem="5ye-5E-M3E" firstAttribute="top" secondItem="3GC-bR-coz" secondAttribute="bottom" constant="24" id="66Z-Vx-ZtS"/>
                             <constraint firstItem="5ye-5E-M3E" firstAttribute="leading" secondItem="b1s-3l-tLv" secondAttribute="leading" id="73K-iV-XBo"/>
-                            <constraint firstAttribute="trailing" secondItem="Tg7-jf-S3u" secondAttribute="trailing" id="7a2-pd-H05"/>
                             <constraint firstItem="RKr-mk-2MS" firstAttribute="trailing" secondItem="R6y-1w-8Ym" secondAttribute="trailing" constant="262" id="8yY-f2-x1z"/>
-                            <constraint firstItem="Tg7-jf-S3u" firstAttribute="bottom" secondItem="RKr-mk-2MS" secondAttribute="bottom" id="Lyg-9L-znV"/>
+                            <constraint firstItem="n1L-KB-DT7" firstAttribute="top" secondItem="Tg7-jf-S3u" secondAttribute="bottom" constant="52" id="93M-1b-Tlk"/>
+                            <constraint firstItem="Tg7-jf-S3u" firstAttribute="top" secondItem="b1s-3l-tLv" secondAttribute="bottom" constant="67" id="AeZ-Xq-zzz"/>
+                            <constraint firstItem="Tg7-jf-S3u" firstAttribute="trailing" secondItem="ZHe-5o-OTU" secondAttribute="trailingMargin" id="BKc-oy-txc"/>
                             <constraint firstItem="R6y-1w-8Ym" firstAttribute="leading" secondItem="3GC-bR-coz" secondAttribute="leading" id="N6s-QW-QCr"/>
                             <constraint firstItem="3GC-bR-coz" firstAttribute="trailing" secondItem="5ye-5E-M3E" secondAttribute="trailing" id="cxp-Ku-tzz"/>
+                            <constraint firstItem="Tg7-jf-S3u" firstAttribute="leading" secondItem="b1s-3l-tLv" secondAttribute="leading" id="dzc-kN-CTY"/>
                             <constraint firstItem="RKr-mk-2MS" firstAttribute="trailing" secondItem="3GC-bR-coz" secondAttribute="trailing" constant="39" id="lBr-3b-UCc"/>
+                            <constraint firstItem="Tg7-jf-S3u" firstAttribute="trailing" secondItem="n1L-KB-DT7" secondAttribute="trailing" id="oWa-NH-txe"/>
                             <constraint firstItem="b1s-3l-tLv" firstAttribute="top" secondItem="5ye-5E-M3E" secondAttribute="bottom" constant="23" id="omO-eU-ZRA"/>
                             <constraint firstItem="3GC-bR-coz" firstAttribute="leading" secondItem="5ye-5E-M3E" secondAttribute="leading" id="pLC-YM-FNu"/>
                             <constraint firstItem="5ye-5E-M3E" firstAttribute="trailing" secondItem="b1s-3l-tLv" secondAttribute="trailing" id="uiS-Fe-r4s"/>
+                            <constraint firstItem="Tg7-jf-S3u" firstAttribute="leading" secondItem="n1L-KB-DT7" secondAttribute="leading" id="xkM-wJ-jtk"/>
                             <constraint firstItem="3GC-bR-coz" firstAttribute="top" secondItem="R6y-1w-8Ym" secondAttribute="bottom" constant="45" id="yAf-IR-DaW"/>
-                            <constraint firstItem="Tg7-jf-S3u" firstAttribute="leading" secondItem="ZHe-5o-OTU" secondAttribute="leading" id="zKG-VJ-q9f"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RKr-mk-2MS"/>
                     </view>
@@ -125,6 +138,8 @@
                         <outlet property="addressTextField" destination="5ye-5E-M3E" id="2LO-av-yyI"/>
                         <outlet property="emailTextField" destination="3GC-bR-coz" id="Mk2-7a-vt3"/>
                         <outlet property="phoneTextField" destination="b1s-3l-tLv" id="Rbz-Eu-1Yo"/>
+                        <outlet property="saveButton" destination="Tg7-jf-S3u" id="xOq-sX-kFv"/>
+                        <outlet property="signOutButton" destination="n1L-KB-DT7" id="9GE-Wk-er1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5EN-gb-Oud" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -148,7 +163,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YHG-d9-eEx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2191.1999999999998" y="-27.436281859070466"/>
+            <point key="canvasLocation" x="1401" y="-302"/>
         </scene>
         <!--HomeID-->
         <scene sceneID="1lk-Cg-l2V">
@@ -158,7 +173,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Fy-OM-Icc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2205.5999999999999" y="-359.37031484257875"/>
+            <point key="canvasLocation" x="3264" y="-302"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Xd3-p6-trv">

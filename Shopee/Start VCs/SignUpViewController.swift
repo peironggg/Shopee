@@ -15,6 +15,7 @@ class SignUpViewController: UIViewController {
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var reenterPasswordTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -33,6 +34,7 @@ class SignUpViewController: UIViewController {
     @IBAction func registerButtonPressed(_ sender: Any) {
         Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (result, error) in
             
+            if self.passwordTextField.text == self.reenterPasswordTextField.text {
             if error != nil {
                 
                 let errorMessage = error?.localizedDescription
@@ -49,6 +51,11 @@ class SignUpViewController: UIViewController {
                 print(newUserReference.description())
                 
                 self.performSegue(withIdentifier: "registerGoToTabBar", sender: self)
+            }
+            } else {
+                let alert = UIAlertController(title: "Error", message: "Passwords do not match.", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
             }
         }
     }

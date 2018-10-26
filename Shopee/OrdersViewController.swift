@@ -19,9 +19,14 @@ class OrdersViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+
+        
         let uid = Auth.auth().currentUser?.uid
         let ref = Database.database().reference()
         ref.child("users").child(uid!).child("orders").observe(.value) { (snapshot) in
+            self.pendingArray = []
+            self.confirmedArray = []
             print("snapshot retrieved")
             for orders in snapshot.children.allObjects {
                 let id = orders as! DataSnapshot
@@ -30,18 +35,21 @@ class OrdersViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 print(values as Any)
 
                 let status = values?["status"] as? Bool
+                
+                print("Status: \(status)")
 
                 if status == false {
                     let order = [values!["url"],values!["price"],values!["quantity"],values!["remarks"]]
                     self.pendingArray.append(order as! [String])
 
-                } else {
+                } else if status == true {
                     let order = [values!["url"],values!["price"],values!["quantity"],values!["remarks"]]
                     self.confirmedArray.append(order as! [String])
 
                 }
             }
             print(self.pendingArray.count)
+            print(self.confirmedArray.count)
             self.cellArray = self.pendingArray
             self.ordersTableView.reloadData()
         }
@@ -53,7 +61,7 @@ class OrdersViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return pendingArray.count
+        return cellArray.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
