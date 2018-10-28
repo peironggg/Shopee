@@ -15,6 +15,7 @@ class OrdersViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBOutlet weak var ordersTableView: UITableView!
     var pendingArray: [[String]] = []
     var confirmedArray: [[String]] = []
+    var deliveryArray: [[String]] = []
     var cellArray: [[String]] = []
 
     override func viewDidLoad() {
@@ -27,25 +28,30 @@ class OrdersViewController: UIViewController, UITableViewDelegate, UITableViewDa
         ref.child("users").child(uid!).child("orders").observe(.value) { (snapshot) in
             self.pendingArray = []
             self.confirmedArray = []
+            self.deliveryArray = []
             print("snapshot retrieved")
             for orders in snapshot.children.allObjects {
                 let id = orders as! DataSnapshot
-                print(id.key)
+                print("ID: \(id.key)")
                 let values = id.value as? NSDictionary
                 print(values as Any)
 
-                let status = values?["status"] as? Bool
+                let payment = values?["payment"] as? Bool
+                let delivery = values?["delivery"] as? Bool
                 
-                print("Status: \(status)")
+                print("Status: \(payment)")
 
-                if status == false {
+                if payment == false && delivery == false {
                     let order = [values!["url"],values!["price"],values!["quantity"],values!["remarks"]]
                     self.pendingArray.append(order as! [String])
 
-                } else if status == true {
+                } else if payment == true && delivery == false {
                     let order = [values!["url"],values!["price"],values!["quantity"],values!["remarks"]]
                     self.confirmedArray.append(order as! [String])
 
+                } else if payment == true && delivery == true {
+                    let order = [values!["url"],values!["price"],values!["quantity"],values!["remarks"]]
+                    self.deliveryArray.append(order as! [String])
                 }
             }
             print(self.pendingArray.count)
@@ -87,8 +93,11 @@ class OrdersViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if sender.selectedSegmentIndex == 1 {
             cellArray = confirmedArray
             ordersTableView.reloadData()
-        } else {
+        } else if sender.selectedSegmentIndex == 0 {
             cellArray = pendingArray
+            ordersTableView.reloadData()
+        } else if sender.selectedSegmentIndex == 2 {
+            cellArray = deliveryArray
             ordersTableView.reloadData()
         }
     }

@@ -34,11 +34,12 @@
                     <navigationItem key="navigationItem" id="oki-Fm-eur">
                         <nil key="title"/>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" id="Tk5-hw-6zc">
-                            <rect key="frame" x="64" y="7" width="247" height="30"/>
+                            <rect key="frame" x="8" y="7" width="359" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
-                                <segment title="Orders Pending"/>
-                                <segment title="Orders Confirmed"/>
+                                <segment title="Pending"/>
+                                <segment title="Confirmed"/>
+                                <segment title="Delivered"/>
                             </segments>
                             <connections>
                                 <action selector="ordersSegmentedPressed:" destination="oco-GT-2sr" eventType="valueChanged" id="DwX-7I-WWg"/>

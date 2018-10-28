@@ -38,7 +38,7 @@ class SubmitOrderViewController: UIViewController {
             hud.indicatorView = JGProgressHUDSuccessIndicatorView()
             hud.show(in: self.view)
         let ref = Database.database().reference().child("users").child((Auth.auth().currentUser?.uid)!).child("orders").childByAutoId()
-    ref.setValue(["url":urlTextField.text!,"price":priceTextField.text!,"quantity":quantityTextField.text!,"remarks":remarksTextField.text!,"status":false])
+            ref.setValue(["url":urlTextField.text!,"price":priceTextField.text!,"quantity":quantityTextField.text!,"remarks":remarksTextField.text!,"payment":false,"delivery":false])
             hud.dismiss()
         navigationController?.popViewController(animated: true)
         } else {
