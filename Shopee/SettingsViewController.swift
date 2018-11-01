@@ -21,6 +21,10 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var signOutButton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
     
+    @objc func doneClicked() {
+        view.endEditing(true)
+    }
+    
     let ref = Database.database().reference()
     let uid = Auth.auth().currentUser?.uid
     override func viewDidLoad() {
@@ -49,6 +53,16 @@ class SettingsViewController: UIViewController {
 
         }
         
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneClicked))
+        toolBar.setItems([flexibleSpace,doneButton], animated: true)
+        
+        emailTextField.inputAccessoryView = toolBar
+        addressTextField.inputAccessoryView = toolBar
+        phoneTextField.inputAccessoryView = toolBar
     }
     
 

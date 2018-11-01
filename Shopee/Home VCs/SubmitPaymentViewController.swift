@@ -16,6 +16,11 @@ class SubmitPaymentViewController: UIViewController {
 
     @IBOutlet weak var amountTextField: UITextField!
     @IBOutlet weak var paymentTextField: UITextField!
+    @IBOutlet weak var submitButton: UIButton!
+    
+    @objc func doneClicked() {
+        view.endEditing(true)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +31,18 @@ class SubmitPaymentViewController: UIViewController {
 //        amountTextField.layer.addSublayer(bottomLayer)
         
         view.backgroundColor = HexColor("#e8f4f8")
+        submitButton.backgroundColor = FlatOrange()
+        submitButton.setTitleColor(FlatWhite(), for: .normal)
+        submitButton.titleLabel?.font = UIFont(name: "Roboto", size: 20)
         
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneClicked))
+        toolBar.setItems([flexibleSpace,doneButton], animated: true)
+        amountTextField.inputAccessoryView = toolBar
+        paymentTextField.inputAccessoryView = toolBar
     }
     
     @IBAction func actualSubmitPaymentPressed(_ sender: Any) {

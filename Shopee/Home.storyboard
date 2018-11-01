@@ -148,6 +148,7 @@
                     <connections>
                         <outlet property="amountTextField" destination="7fU-bK-Cbx" id="ZwD-oL-2wu"/>
                         <outlet property="paymentTextField" destination="xxf-Ne-T0m" id="K8S-6Y-WXO"/>
+                        <outlet property="submitButton" destination="IKW-bf-5rY" id="Yi3-Ge-r5D"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o0V-wO-lSA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -184,10 +185,10 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GqK-aj-hF8">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="www.taobao.com" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GqK-aj-hF8">
                                         <rect key="frame" x="80" y="10" width="285" height="80"/>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
@@ -215,10 +216,10 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bdd-ab-aHC">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="RMB: " textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bdd-ab-aHC">
                                         <rect key="frame" x="80" y="10" width="285" height="80"/>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
@@ -246,10 +247,10 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z52-ND-AQa">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="10" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Z52-ND-AQa">
                                         <rect key="frame" x="80" y="10" width="285" height="80"/>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
@@ -277,10 +278,10 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LP6-VE-NAn">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="S, Red" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LP6-VE-NAn">
                                         <rect key="frame" x="80" y="10" width="285" height="80"/>
                                         <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
@@ -296,6 +297,9 @@
                                     <constraint firstItem="jxz-Jn-Wa3" firstAttribute="top" secondItem="Icx-iq-iGd" secondAttribute="top" constant="10" id="uAu-gc-AfI"/>
                                 </constraints>
                             </view>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YXb-e7-LwO">
+                                <rect key="frame" x="0.0" y="472" width="375" height="82"/>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -304,7 +308,10 @@
                             <constraint firstItem="HEv-v4-Fdp" firstAttribute="top" secondItem="RZA-Jj-kjC" secondAttribute="bottom" id="Ech-J2-BJg"/>
                             <constraint firstItem="cik-TU-ome" firstAttribute="top" secondItem="WBY-IH-HES" secondAttribute="top" id="KyT-Pm-crw"/>
                             <constraint firstItem="Icx-iq-iGd" firstAttribute="top" secondItem="HEv-v4-Fdp" secondAttribute="bottom" id="OEW-Iz-Bo3"/>
+                            <constraint firstItem="YXb-e7-LwO" firstAttribute="top" secondItem="Icx-iq-iGd" secondAttribute="bottom" constant="8" symbolic="YES" id="PTV-3J-Wdn"/>
+                            <constraint firstItem="9sb-Ih-rIC" firstAttribute="top" secondItem="YXb-e7-LwO" secondAttribute="bottom" constant="53" id="SbD-4l-KHj"/>
                             <constraint firstItem="WBY-IH-HES" firstAttribute="trailing" secondItem="9sb-Ih-rIC" secondAttribute="trailing" id="TId-es-dKM"/>
+                            <constraint firstItem="YXb-e7-LwO" firstAttribute="trailing" secondItem="Icx-iq-iGd" secondAttribute="trailing" id="Vxe-u0-rlp"/>
                             <constraint firstItem="RZA-Jj-kjC" firstAttribute="top" secondItem="cik-TU-ome" secondAttribute="bottom" id="beU-3q-Foa"/>
                             <constraint firstItem="Icx-iq-iGd" firstAttribute="leading" secondItem="WBY-IH-HES" secondAttribute="leading" id="bte-og-Quj"/>
                             <constraint firstItem="WBY-IH-HES" firstAttribute="bottom" secondItem="9sb-Ih-rIC" secondAttribute="bottom" id="fYA-XN-n0O"/>
@@ -312,15 +319,18 @@
                             <constraint firstItem="WBY-IH-HES" firstAttribute="trailing" secondItem="HEv-v4-Fdp" secondAttribute="trailing" id="nSn-8B-wvD"/>
                             <constraint firstItem="HEv-v4-Fdp" firstAttribute="leading" secondItem="WBY-IH-HES" secondAttribute="leading" id="oOh-Uk-4Ko"/>
                             <constraint firstItem="9sb-Ih-rIC" firstAttribute="leading" secondItem="WBY-IH-HES" secondAttribute="leading" id="pWL-nq-Ueg"/>
+                            <constraint firstItem="YXb-e7-LwO" firstAttribute="leading" secondItem="Icx-iq-iGd" secondAttribute="leading" id="s9v-jL-8ya"/>
                             <constraint firstItem="WBY-IH-HES" firstAttribute="trailing" secondItem="RZA-Jj-kjC" secondAttribute="trailing" id="uIY-Fx-pXo"/>
                             <constraint firstItem="RZA-Jj-kjC" firstAttribute="leading" secondItem="WBY-IH-HES" secondAttribute="leading" id="xfS-NN-fzI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="WBY-IH-HES"/>
                     </view>
                     <connections>
+                        <outlet property="countryPicker" destination="YXb-e7-LwO" id="pMa-Wt-XeZ"/>
                         <outlet property="priceTextField" destination="Bdd-ab-aHC" id="hOW-Jt-D8E"/>
                         <outlet property="quantityTextField" destination="Z52-ND-AQa" id="f2Z-Q3-QCm"/>
                         <outlet property="remarksTextField" destination="LP6-VE-NAn" id="cZr-TY-A6I"/>
+                        <outlet property="submitButton" destination="9sb-Ih-rIC" id="2bk-UW-Kun"/>
                         <outlet property="urlTextField" destination="GqK-aj-hF8" id="W0u-c5-cXL"/>
                     </connections>
                 </viewController>

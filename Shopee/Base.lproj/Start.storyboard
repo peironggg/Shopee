@@ -125,6 +125,20 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4pb-y1-dP3">
+                                <rect key="frame" x="75" y="343" width="225" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mE9-oJ-6lm">
+                                <rect key="frame" x="75" y="400" width="225" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -142,8 +156,10 @@
                         <viewLayoutGuide key="safeArea" id="XhE-CF-Nx8"/>
                     </view>
                     <connections>
+                        <outlet property="addressTextField" destination="4pb-y1-dP3" id="cDe-fN-Sgd"/>
                         <outlet property="emailTextField" destination="HaG-6V-Tdq" id="hgF-rT-zCA"/>
                         <outlet property="passwordTextField" destination="b1d-Cf-cRY" id="LPc-Iy-tvb"/>
+                        <outlet property="phoneTextField" destination="mE9-oJ-6lm" id="D74-XS-deT"/>
                         <outlet property="reenterPasswordTextField" destination="qB3-Q6-JYT" id="x50-tB-oJI"/>
                         <segue destination="e3d-Jp-WGx" kind="presentation" identifier="registerGoToTabBar" id="Ays-GT-tUJ"/>
                     </connections>

@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import SwipeCellKit
 
-class OrderCell: UITableViewCell {
+class OrderCell: SwipeTableViewCell {
 
     
     @IBOutlet weak var urlLabel: UILabel!

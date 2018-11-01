@@ -16,6 +16,10 @@ class LogInViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    @objc func doneClicked() {
+        view.endEditing(true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,6 +30,16 @@ class LogInViewController: UIViewController {
         passwordTextField.backgroundColor = FlatBlack().lighten(byPercentage: 0.80)
         passwordTextField.textColor = FlatBlack()
         passwordTextField.attributedPlaceholder = NSAttributedString(string: passwordTextField.placeholder!, attributes: [NSAttributedString.Key.foregroundColor: FlatBlack().lighten(byPercentage: 0.60)!])
+        
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        
+        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneClicked))
+        toolBar.setItems([flexibleSpace,doneButton], animated: true)
+        
+        emailTextField.inputAccessoryView = toolBar
+        passwordTextField.inputAccessoryView = toolBar
     }
     
     override func viewDidAppear(_ animated: Bool) {

@@ -9,22 +9,30 @@
 import UIKit
 import FirebaseDatabase
 import FirebaseAuth
+import SwipeCellKit
 
-class OrdersViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class OrdersViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SwipeTableViewCellDelegate {
+
+    
 
     @IBOutlet weak var ordersTableView: UITableView!
     var pendingArray: [[String]] = []
     var confirmedArray: [[String]] = []
     var deliveryArray: [[String]] = []
     var cellArray: [[String]] = []
+    var pickerCountry: [String] = []
+    
 
+
+    let uid = Auth.auth().currentUser?.uid
+    let ref = Database.database().reference()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
 
+
         
-        let uid = Auth.auth().currentUser?.uid
-        let ref = Database.database().reference()
         ref.child("users").child(uid!).child("orders").observe(.value) { (snapshot) in
             self.pendingArray = []
             self.confirmedArray = []
@@ -38,19 +46,20 @@ class OrdersViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
                 let payment = values?["payment"] as? Bool
                 let delivery = values?["delivery"] as? Bool
+                self.pickerCountry.append((values?["country"] as? String)!)
                 
                 print("Status: \(payment)")
 
                 if payment == false && delivery == false {
-                    let order = [values!["url"],values!["price"],values!["quantity"],values!["remarks"]]
+                    let order = [values!["url"],values!["price"],values!["quantity"],values!["remarks"],id.key]
                     self.pendingArray.append(order as! [String])
 
                 } else if payment == true && delivery == false {
-                    let order = [values!["url"],values!["price"],values!["quantity"],values!["remarks"]]
+                    let order = [values!["url"],values!["price"],values!["quantity"],values!["remarks"],id.key]
                     self.confirmedArray.append(order as! [String])
 
                 } else if payment == true && delivery == true {
-                    let order = [values!["url"],values!["price"],values!["quantity"],values!["remarks"]]
+                    let order = [values!["url"],values!["price"],values!["quantity"],values!["remarks"],id.key]
                     self.deliveryArray.append(order as! [String])
                 }
             }
@@ -72,6 +81,8 @@ class OrdersViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = ordersTableView.dequeueReusableCell(withIdentifier: "orderCell", for: indexPath) as! OrderCell
+        cell.delegate = self
+        
         if cellArray.isEmpty {
             cell.urlLabel.text = ""
             cell.priceLabel.text = ""
@@ -80,12 +91,41 @@ class OrdersViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
         } else {
             cell.urlLabel.text = "url: \(cellArray[indexPath.row][0])"
-            cell.priceLabel.text = "Price: \(cellArray[indexPath.row][1])"
+            if pickerCountry[indexPath.row] == "China" {
+                let price = Double(cellArray[indexPath.row][1])!/4.7
+                let quantity = Double(cellArray[indexPath.row][2])!
+                let totalPrice = price*quantity
+                let roundedPrice = String(format: "%.2f", totalPrice)
+                cell.priceLabel.text = "Please Pay: \(roundedPrice)"
+            } else if pickerCountry[indexPath.row] == "USA" {
+                let priceUS = Double(cellArray[indexPath.row][1])!*1.4
+                let quantity = Double(cellArray[indexPath.row][2])!
+                let totalPriceUS = priceUS*quantity
+                let roundedPriceUS = String(format: "%.2f", totalPriceUS)
+                cell.priceLabel.text = "Please Pay: \(roundedPriceUS)"
+            }
             cell.quantityLabel.text = "Quantity: \(cellArray[indexPath.row][2])"
             cell.remarksLabel.text = "Remarks: \(cellArray[indexPath.row][3])"
         }
         return cell
     }
+    
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        guard orientation == .right else { return nil }
+
+        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
+            let id = self.cellArray[indexPath.row][4]
+            self.ref.child("users").child(self.uid!).child("orders").child(id).removeValue()
+            action.fulfill(with: .delete)
+        }
+        ordersTableView.reloadData()
+        deleteAction.image = UIImage(named: "delete")
+
+        return [deleteAction]
+    }
+    
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 171
     }
