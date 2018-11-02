@@ -9,7 +9,7 @@
 import UIKit
 import SwipeCellKit
 
-class OrderCell: SwipeTableViewCell {
+class OrderCell: UITableViewCell {
 
     
     @IBOutlet weak var urlLabel: UILabel!

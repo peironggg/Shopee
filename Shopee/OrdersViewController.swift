@@ -11,7 +11,7 @@ import FirebaseDatabase
 import FirebaseAuth
 import SwipeCellKit
 
-class OrdersViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, SwipeTableViewCellDelegate {
+class OrdersViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
     
 
@@ -78,11 +78,20 @@ class OrdersViewController: UIViewController, UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return cellArray.count
     }
-
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if (editingStyle == .delete) {
+            let id = self.cellArray[indexPath.row][4]
+            self.ref.child("users").child(self.uid!).child("orders").child(id).removeValue()
+            ordersTableView.reloadData()
+        }
+    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = ordersTableView.dequeueReusableCell(withIdentifier: "orderCell", for: indexPath) as! OrderCell
-        cell.delegate = self
-        
+//        cell.delegate = self
         if cellArray.isEmpty {
             cell.urlLabel.text = ""
             cell.priceLabel.text = ""
@@ -111,19 +120,19 @@ class OrdersViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     
-    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
-        guard orientation == .right else { return nil }
-
-        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
-            let id = self.cellArray[indexPath.row][4]
-            self.ref.child("users").child(self.uid!).child("orders").child(id).removeValue()
-            action.fulfill(with: .delete)
-        }
-        ordersTableView.reloadData()
-        deleteAction.image = UIImage(named: "delete")
-
-        return [deleteAction]
-    }
+//    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+//        guard orientation == .right else { return nil }
+//
+//        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
+//            let id = self.cellArray[indexPath.row][4]
+//            self.ref.child("users").child(self.uid!).child("orders").child(id).removeValue()
+//            action.fulfill(with: .delete)
+//        }
+//        ordersTableView.reloadData()
+//        deleteAction.image = UIImage(named: "delete")
+//
+//        return [deleteAction]
+//    }
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

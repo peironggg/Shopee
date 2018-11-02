@@ -18,10 +18,10 @@
 		E55D3765217DBD4700B67E43 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E55D3764217DBD4700B67E43 /* Home.storyboard */; };
 		E55D376A217EB3A200B67E43 /* OrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55D3768217EB3A200B67E43 /* OrderCell.swift */; };
 		E55D376B217EB3A200B67E43 /* OrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E55D3769217EB3A200B67E43 /* OrderCell.xib */; };
+		E560901F218C55C9004FFAE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E560901E218C55C9004FFAE4 /* Assets.xcassets */; };
 		E5E19C30217CA56400E3A02D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E19C2F217CA56400E3A02D /* AppDelegate.swift */; };
 		E5E19C32217CA56400E3A02D /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E19C31217CA56400E3A02D /* LogInViewController.swift */; };
 		E5E19C35217CA56400E3A02D /* Start.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5E19C33217CA56400E3A02D /* Start.storyboard */; };
-		E5E19C37217CA56600E3A02D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5E19C36217CA56600E3A02D /* Assets.xcassets */; };
 		E5E19C3A217CA56600E3A02D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5E19C38217CA56600E3A02D /* LaunchScreen.storyboard */; };
 		E5E19C42217CA5E700E3A02D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5E19C41217CA5E700E3A02D /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
@@ -42,11 +42,11 @@
 		E55D3768217EB3A200B67E43 /* OrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCell.swift; sourceTree = "<group>"; };
 		E55D3769217EB3A200B67E43 /* OrderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderCell.xib; sourceTree = "<group>"; };
 		E55D37712183141400B67E43 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Black.ttf"; path = "../../../Desktop/Roboto-Black.ttf"; sourceTree = "<group>"; };
+		E560901E218C55C9004FFAE4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E5E19C2C217CA56400E3A02D /* Shopee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shopee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5E19C2F217CA56400E3A02D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5E19C31217CA56400E3A02D /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		E5E19C34217CA56400E3A02D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Start.storyboard; sourceTree = "<group>"; };
-		E5E19C36217CA56600E3A02D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E5E19C39217CA56600E3A02D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E5E19C3B217CA56600E3A02D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E5E19C41217CA5E700E3A02D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -120,6 +120,7 @@
 		E5E19C23217CA56400E3A02D = {
 			isa = PBXGroup;
 			children = (
+				E560901E218C55C9004FFAE4 /* Assets.xcassets */,
 				E5E19C2E217CA56400E3A02D /* Shopee */,
 				E5E19C2D217CA56400E3A02D /* Products */,
 				E55D37702183140A00B67E43 /* Font */,
@@ -149,7 +150,6 @@
 				E5E19C33217CA56400E3A02D /* Start.storyboard */,
 				E55D375B217D643700B67E43 /* Main.storyboard */,
 				E55D3764217DBD4700B67E43 /* Home.storyboard */,
-				E5E19C36217CA56600E3A02D /* Assets.xcassets */,
 				E5E19C38217CA56600E3A02D /* LaunchScreen.storyboard */,
 				E5E19C41217CA5E700E3A02D /* GoogleService-Info.plist */,
 				E5E19C3B217CA56600E3A02D /* Info.plist */,
@@ -226,8 +226,8 @@
 				E5E19C3A217CA56600E3A02D /* LaunchScreen.storyboard in Resources */,
 				E55D375C217D643700B67E43 /* Main.storyboard in Resources */,
 				E5E19C42217CA5E700E3A02D /* GoogleService-Info.plist in Resources */,
+				E560901F218C55C9004FFAE4 /* Assets.xcassets in Resources */,
 				E55D3765217DBD4700B67E43 /* Home.storyboard in Resources */,
-				E5E19C37217CA56600E3A02D /* Assets.xcassets in Resources */,
 				E5E19C35217CA56400E3A02D /* Start.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -449,7 +449,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JS6NFR972X;
 				INFOPLIST_FILE = Shopee/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.peirong.Shopee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
@@ -466,7 +469,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JS6NFR972X;
 				INFOPLIST_FILE = Shopee/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.peirong.Shopee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
