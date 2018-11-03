@@ -25,13 +25,12 @@ class SignUpViewController: UIViewController {
     }
     
     let ref = Database.database().reference()
-    let uid = Auth.auth().currentUser?.uid
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationItem.title = "Register"
-        
+
         emailTextField.backgroundColor = FlatBlack().lighten(byPercentage: 0.80)
         emailTextField.textColor = FlatBlack()
         emailTextField.attributedPlaceholder = NSAttributedString(string: emailTextField.placeholder!, attributes: [NSAttributedString.Key.foregroundColor: FlatBlack().lighten(byPercentage: 0.60)!])
@@ -39,6 +38,19 @@ class SignUpViewController: UIViewController {
         passwordTextField.backgroundColor = FlatBlack().lighten(byPercentage: 0.80)
         passwordTextField.textColor = FlatBlack()
         passwordTextField.attributedPlaceholder = NSAttributedString(string: passwordTextField.placeholder!, attributes: [NSAttributedString.Key.foregroundColor: FlatBlack().lighten(byPercentage: 0.60)!])
+        
+        reenterPasswordTextField.backgroundColor = FlatBlack().lighten(byPercentage: 0.80)
+        reenterPasswordTextField.textColor = FlatBlack()
+        reenterPasswordTextField.attributedPlaceholder = NSAttributedString(string: reenterPasswordTextField.placeholder!, attributes: [NSAttributedString.Key.foregroundColor: FlatBlack().lighten(byPercentage: 0.60)!])
+        
+        addressTextField.backgroundColor = FlatBlack().lighten(byPercentage: 0.80)
+        addressTextField.textColor = FlatBlack()
+        addressTextField.attributedPlaceholder = NSAttributedString(string: addressTextField.placeholder!, attributes: [NSAttributedString.Key.foregroundColor: FlatBlack().lighten(byPercentage: 0.60)!])
+        
+        phoneTextField.backgroundColor = FlatBlack().lighten(byPercentage: 0.80)
+        phoneTextField.textColor = FlatBlack()
+        phoneTextField.attributedPlaceholder = NSAttributedString(string: phoneTextField.placeholder!, attributes: [NSAttributedString.Key.foregroundColor: FlatBlack().lighten(byPercentage: 0.60)!])
+        
         
         let toolBar = UIToolbar()
         toolBar.sizeToFit()
@@ -65,7 +77,7 @@ class SignUpViewController: UIViewController {
             let hud = JGProgressHUD(style: .dark)
             hud.textLabel.text = "Success"
             hud.indicatorView = JGProgressHUDSuccessIndicatorView()
-            hud.show(in: self.view)
+            
             
             Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (result, error) in
                 
@@ -78,16 +90,12 @@ class SignUpViewController: UIViewController {
                         self.present(alert, animated: true, completion: nil)
                     } else {
                         print("Registration Successful")
+                        hud.show(in: self.view)
+                        let uid = (result?.user.uid)!
+                        self.ref.child("users/\(uid)/email").setValue(self.emailTextField.text!)
+                        self.ref.child("users/\(uid)/address").setValue(self.addressTextField.text!)
+                        self.ref.child("users/\(uid)/phone").setValue(self.phoneTextField.text!)
                         
-                        self.ref.child("users/\(self.uid!)/email").setValue(self.emailTextField.text!)
-                        self.ref.child("users/\(self.uid!)/address").setValue(self.addressTextField.text!)
-                        self.ref.child("users/\(self.uid!)/phone").setValue(self.phoneTextField.text!)
-                        
-                        let usersReference = self.ref.child("users")
-                        
-                        let newUserReference = usersReference.child(self.uid!)
-                        newUserReference.setValue(["email": self.emailTextField.text!])
-                        print(newUserReference.description())
                         
                         self.performSegue(withIdentifier: "registerGoToTabBar", sender: self)
                     }

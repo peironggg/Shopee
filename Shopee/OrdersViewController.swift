@@ -53,6 +53,7 @@ class OrdersViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 if payment == false && delivery == false {
                     let order = [values!["url"],values!["price"],values!["quantity"],values!["remarks"],id.key]
                     self.pendingArray.append(order as! [String])
+                    print("pendingarray: \(self.pendingArray)")
 
                 } else if payment == true && delivery == false {
                     let order = [values!["url"],values!["price"],values!["quantity"],values!["remarks"],id.key]
@@ -66,6 +67,7 @@ class OrdersViewController: UIViewController, UITableViewDelegate, UITableViewDa
             print(self.pendingArray.count)
             print(self.confirmedArray.count)
             self.cellArray = self.pendingArray
+            print(self.cellArray)
             self.ordersTableView.reloadData()
         }
         ordersTableView.delegate = self
@@ -101,6 +103,7 @@ class OrdersViewController: UIViewController, UITableViewDelegate, UITableViewDa
         } else {
             cell.urlLabel.text = "url: \(cellArray[indexPath.row][0])"
             if pickerCountry[indexPath.row] == "China" {
+                print(cellArray[indexPath.row][1])
                 let price = Double(cellArray[indexPath.row][1])!/4.7
                 let quantity = Double(cellArray[indexPath.row][2])!
                 let totalPrice = price*quantity

@@ -13,10 +13,13 @@ class HomeViewController: UIViewController {
 
     @IBOutlet weak var paymentButton: UIButton!
     @IBOutlet weak var orderButton: UIButton!
+    @IBOutlet weak var instructionsImage: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = HexColor("#e8f4f8")
+        
+        instructionsImage.image = UIImage(named: "Home")
         
         paymentButton.backgroundColor = FlatOrange()
         paymentButton.setTitleColor(FlatWhite(), for: .normal)
