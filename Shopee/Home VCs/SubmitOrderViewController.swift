@@ -71,22 +71,34 @@ class SubmitOrderViewController: UIViewController, UIPickerViewDelegate, UIPicke
     }
     
     @IBAction func submitOrderPressed(_ sender: Any) {
-        
-        if urlTextField.text?.isEmpty == false && priceTextField.text?.isEmpty == false && quantityTextField.text?.isEmpty == false && remarksTextField.text?.isEmpty == false {
-            let hud = JGProgressHUD(style: .dark)
-            hud.textLabel.text = "Success"
-            hud.indicatorView = JGProgressHUDSuccessIndicatorView()
-            hud.show(in: self.view)
-        let ref = Database.database().reference().child("users").child((Auth.auth().currentUser?.uid)!).child("orders").childByAutoId()
-            ref.setValue(["url":urlTextField.text!,"price":priceTextField.text!,"quantity":quantityTextField.text!,"remarks":remarksTextField.text!,"payment":false,"delivery":false,"country":pickerCountry])
-            hud.dismiss()
-        navigationController?.popViewController(animated: true)
-        } else {
-            let alert = UIAlertController(title: "Error", message: "Please fill in the blanks.", preferredStyle: .alert)
-            let alertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
-            alert.addAction(alertAction)
-            self.present(alert, animated: true, completion: nil)
+
+            if self.urlTextField.text?.isEmpty == false && self.priceTextField.text?.isEmpty == false && self.quantityTextField.text?.isEmpty == false && self.remarksTextField.text?.isEmpty == false {
+                let alertFirst = UIAlertController(title: "Warning", message: "Are you sure you want to submit?", preferredStyle: .alert)
+                let alertAction2 = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+                alertFirst.addAction(alertAction2)
+                let alertActionFirst = UIAlertAction(title: "Confirm", style: .default) { (action) in
+                    
+                    let hud = JGProgressHUD(style: .dark)
+                    hud.textLabel.text = "Success"
+                    hud.indicatorView = JGProgressHUDSuccessIndicatorView()
+                    hud.show(in: self.view)
+                    let ref = Database.database().reference().child("users").child((Auth.auth().currentUser?.uid)!).child("orders").childByAutoId()
+                    ref.setValue(["url":self.urlTextField.text!,"price":self.priceTextField.text!,"quantity":self.quantityTextField.text!,"remarks":self.remarksTextField.text!,"payment":false,"delivery":false,"country":self.pickerCountry!])
+                    hud.dismiss()
+                    self.navigationController?.popViewController(animated: true)
+                }
+                alertFirst.addAction(alertActionFirst)
+                self.present(alertFirst, animated: true, completion: nil)
+               
+            } else {
+                let alert = UIAlertController(title: "Error", message: "Please fill in the blanks.", preferredStyle: .alert)
+                let alertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                alert.addAction(alertAction)
+                self.present(alert, animated: true, completion: nil)
+            }
+
         }
+
     }
     
-}
+

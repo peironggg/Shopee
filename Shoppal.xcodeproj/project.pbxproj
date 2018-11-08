@@ -43,7 +43,7 @@
 		E55D3769217EB3A200B67E43 /* OrderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderCell.xib; sourceTree = "<group>"; };
 		E55D37712183141400B67E43 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Black.ttf"; path = "../../../Desktop/Roboto-Black.ttf"; sourceTree = "<group>"; };
 		E560901E218C55C9004FFAE4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E5E19C2C217CA56400E3A02D /* Shopee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shopee.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5E19C2C217CA56400E3A02D /* Shoppal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shoppal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5E19C2F217CA56400E3A02D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5E19C31217CA56400E3A02D /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
 		E5E19C34217CA56400E3A02D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Start.storyboard; sourceTree = "<group>"; };
@@ -132,7 +132,7 @@
 		E5E19C2D217CA56400E3A02D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E5E19C2C217CA56400E3A02D /* Shopee.app */,
+				E5E19C2C217CA56400E3A02D /* Shoppal.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -160,9 +160,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E5E19C2B217CA56400E3A02D /* Shopee */ = {
+		E5E19C2B217CA56400E3A02D /* Shoppal */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E5E19C3E217CA56600E3A02D /* Build configuration list for PBXNativeTarget "Shopee" */;
+			buildConfigurationList = E5E19C3E217CA56600E3A02D /* Build configuration list for PBXNativeTarget "Shoppal" */;
 			buildPhases = (
 				6378773268CDAF77D1E8E67B /* [CP] Check Pods Manifest.lock */,
 				E5E19C28217CA56400E3A02D /* Sources */,
@@ -174,9 +174,9 @@
 			);
 			dependencies = (
 			);
-			name = Shopee;
+			name = Shoppal;
 			productName = Shopee;
-			productReference = E5E19C2C217CA56400E3A02D /* Shopee.app */;
+			productReference = E5E19C2C217CA56400E3A02D /* Shoppal.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -199,7 +199,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E5E19C27217CA56400E3A02D /* Build configuration list for PBXProject "Shopee" */;
+			buildConfigurationList = E5E19C27217CA56400E3A02D /* Build configuration list for PBXProject "Shoppal" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -212,7 +212,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E5E19C2B217CA56400E3A02D /* Shopee */,
+				E5E19C2B217CA56400E3A02D /* Shoppal */,
 			);
 		};
 /* End PBXProject section */
@@ -483,7 +483,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E5E19C27217CA56400E3A02D /* Build configuration list for PBXProject "Shopee" */ = {
+		E5E19C27217CA56400E3A02D /* Build configuration list for PBXProject "Shoppal" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E5E19C3C217CA56600E3A02D /* Debug */,
@@ -492,7 +492,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E5E19C3E217CA56600E3A02D /* Build configuration list for PBXNativeTarget "Shopee" */ = {
+		E5E19C3E217CA56600E3A02D /* Build configuration list for PBXNativeTarget "Shoppal" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E5E19C3F217CA56600E3A02D /* Debug */,

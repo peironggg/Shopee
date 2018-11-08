@@ -53,15 +53,21 @@ class SubmitPaymentViewController: UIViewController {
             alert.addAction(alertAction)
             self.present(alert, animated: true, completion: nil)
         } else {
+            let alertFirst = UIAlertController(title: "Warning", message: "Are you sure you want to submit?", preferredStyle: .alert)
+            let alertAction2 = UIAlertAction(title: "Cancel", style: .default, handler: nil)
+            alertFirst.addAction(alertAction2)
+            let alertActionFirst = UIAlertAction(title: "Confirm", style: .default) { (action) in
             let hud = JGProgressHUD(style: .dark)
             hud.textLabel.text = "Success"
             hud.indicatorView = JGProgressHUDSuccessIndicatorView()
             hud.show(in: self.view)
             let ref = Database.database().reference().child("users").child((Auth.auth().currentUser?.uid)!).child("payments")
-            ref.childByAutoId().setValue(["amount":amountTextField.text!,"paymentID":paymentTextField.text!])
+                ref.childByAutoId().setValue(["amount":self.amountTextField.text!,"paymentID":self.paymentTextField.text!])
             hud.dismiss()
-            navigationController?.popViewController(animated: true)
-
+            self.navigationController?.popViewController(animated: true)
+            }
+            alertFirst.addAction(alertActionFirst)
+            self.present(alertFirst, animated: true, completion: nil)
         }
         
     }
