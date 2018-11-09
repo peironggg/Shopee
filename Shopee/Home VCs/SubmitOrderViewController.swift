@@ -30,6 +30,9 @@ class SubmitOrderViewController: UIViewController, UIPickerViewDelegate, UIPicke
     var pickerCountry: String?
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        priceTextField.keyboardType = .asciiCapableNumberPad
+        quantityTextField.keyboardType = .asciiCapableNumberPad
 
         view.backgroundColor = HexColor("#e8f4f8")
         pickerData = ["USA", "China"]
