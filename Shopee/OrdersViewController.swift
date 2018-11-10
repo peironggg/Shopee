@@ -10,18 +10,20 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 import SwipeCellKit
+import ChameleonFramework
 
 class OrdersViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
     
 
+    @IBOutlet weak var totalPriceLabel: UILabel!
     @IBOutlet weak var ordersTableView: UITableView!
     var pendingArray: [[String]] = []
     var confirmedArray: [[String]] = []
     var deliveryArray: [[String]] = []
     var cellArray: [[String]] = []
     var pickerCountry: [String] = []
-    
+    var totalPriceArray: [Double] = []
 
 
     let uid = Auth.auth().currentUser?.uid
@@ -30,9 +32,10 @@ class OrdersViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         
-
-
-        
+        totalPriceArray = []
+        totalPriceLabel.backgroundColor = FlatBlue()
+        totalPriceLabel.textColor = FlatWhite()
+        totalPriceLabel.font = UIFont(name: "Roboto", size: 20)
         ref.child("users").child(uid!).child("orders").observe(.value) { (snapshot) in
             self.pendingArray = []
             self.confirmedArray = []
@@ -93,7 +96,6 @@ class OrdersViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = ordersTableView.dequeueReusableCell(withIdentifier: "orderCell", for: indexPath) as! OrderCell
-//        cell.delegate = self
         if cellArray.isEmpty {
             cell.urlLabel.text = ""
             cell.priceLabel.text = ""
@@ -107,36 +109,28 @@ class OrdersViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 let price = Double(cellArray[indexPath.row][1])!/4.7
                 let quantity = Double(cellArray[indexPath.row][2])!
                 let totalPrice = price*quantity
+                totalPriceArray.append(totalPrice)
                 let roundedPrice = String(format: "%.2f", totalPrice)
                 cell.priceLabel.text = "Please Pay: \(roundedPrice)"
             } else if pickerCountry[indexPath.row] == "USA" {
                 let priceUS = Double(cellArray[indexPath.row][1])!*1.4
                 let quantity = Double(cellArray[indexPath.row][2])!
                 let totalPriceUS = priceUS*quantity
+                totalPriceArray.append(totalPriceUS)
                 let roundedPriceUS = String(format: "%.2f", totalPriceUS)
                 cell.priceLabel.text = "Please Pay: \(roundedPriceUS)"
             }
             cell.quantityLabel.text = "Quantity: \(cellArray[indexPath.row][2])"
             cell.remarksLabel.text = "Remarks: \(cellArray[indexPath.row][3])"
         }
+        
+        let totalPriceToPay = totalPriceArray.reduce(0, +)
+        let roundedTotalPriceToPay = String(format: "%.2f", totalPriceToPay)
+        totalPriceLabel.text = "  Total Price: \(roundedTotalPriceToPay) SGD"
         return cell
     }
     
-    
-//    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
-//        guard orientation == .right else { return nil }
-//
-//        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
-//            let id = self.cellArray[indexPath.row][4]
-//            self.ref.child("users").child(self.uid!).child("orders").child(id).removeValue()
-//            action.fulfill(with: .delete)
-//        }
-//        ordersTableView.reloadData()
-//        deleteAction.image = UIImage(named: "delete")
-//
-//        return [deleteAction]
-//    }
-    
+
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 171
