@@ -32,6 +32,7 @@ class OrdersViewController: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        totalPriceLabel.text = "  Total Price:"
         totalPriceArray = []
         totalPriceLabel.backgroundColor = FlatBlue()
         totalPriceLabel.textColor = FlatWhite()
@@ -91,8 +92,8 @@ class OrdersViewController: UIViewController, UITableViewDelegate, UITableViewDa
         if (editingStyle == .delete) {
             let id = self.cellArray[indexPath.row][4]
             self.ref.child("users").child(self.uid!).child("orders").child(id).removeValue()
-            ordersTableView.reloadData()
-        }
+            viewDidLoad()
+            }
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = ordersTableView.dequeueReusableCell(withIdentifier: "orderCell", for: indexPath) as! OrderCell
@@ -101,6 +102,7 @@ class OrdersViewController: UIViewController, UITableViewDelegate, UITableViewDa
             cell.priceLabel.text = ""
             cell.quantityLabel.text = ""
             cell.remarksLabel.text = ""
+            totalPriceLabel.text = "  Total Price:"
 
         } else {
             cell.urlLabel.text = "url: \(cellArray[indexPath.row][0])"
