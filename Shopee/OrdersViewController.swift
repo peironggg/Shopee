@@ -9,7 +9,6 @@
 import UIKit
 import FirebaseDatabase
 import FirebaseAuth
-import SwipeCellKit
 import ChameleonFramework
 
 class OrdersViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{

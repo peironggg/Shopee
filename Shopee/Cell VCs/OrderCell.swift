@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SwipeCellKit
 
 class OrderCell: UITableViewCell {
 
