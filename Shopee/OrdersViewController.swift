@@ -28,6 +28,10 @@ class OrdersViewController: UIViewController, UITableViewDelegate, UITableViewDa
     let uid = Auth.auth().currentUser?.uid
     let ref = Database.database().reference()
     
+    override func viewWillAppear(_ animated: Bool) {
+        totalPriceArray = []
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -95,6 +99,7 @@ class OrdersViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
         let cell = ordersTableView.dequeueReusableCell(withIdentifier: "orderCell", for: indexPath) as! OrderCell
         if cellArray.isEmpty {
             cell.urlLabel.text = ""
