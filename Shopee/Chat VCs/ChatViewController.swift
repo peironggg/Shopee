@@ -24,7 +24,7 @@ class ChatViewController: UIViewController, UITextFieldDelegate, UITableViewData
     
     let uid = Auth.auth().currentUser?.uid
     let email = Auth.auth().currentUser?.email
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -102,9 +102,11 @@ class ChatViewController: UIViewController, UITextFieldDelegate, UITableViewData
         messageTextField.isEnabled = false
         sendButton.isEnabled = false
         
+        let tick = String(format: "%.0f", Date().timeIntervalSince1970)
+        
         let messagesDB = Database.database().reference().child("Messages").child(uid!)
         let messageDictionary = ["Sender": email, "Message": messageTextField.text!]
-        messagesDB.childByAutoId().setValue(messageDictionary)  {
+        messagesDB.child(tick).setValue(messageDictionary)  {
             (error, reference) in
             
             if error != nil {
