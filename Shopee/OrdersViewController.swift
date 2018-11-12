@@ -29,21 +29,21 @@ class OrdersViewController: UIViewController, UITableViewDelegate, UITableViewDa
     let ref = Database.database().reference()
     
     override func viewWillAppear(_ animated: Bool) {
-        totalPriceArray = []
+        viewDidLoad()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        totalPriceLabel.text = "  Total Price:"
-        totalPriceArray = []
+
         totalPriceLabel.backgroundColor = FlatBlue()
         totalPriceLabel.textColor = FlatWhite()
         totalPriceLabel.font = UIFont(name: "Roboto", size: 20)
         ref.child("users").child(uid!).child("orders").observe(.value) { (snapshot) in
+            self.totalPriceArray = []
             self.pendingArray = []
             self.confirmedArray = []
             self.deliveryArray = []
+            self.pickerCountry = []
             print("snapshot retrieved")
             for orders in snapshot.children.allObjects {
                 let id = orders as! DataSnapshot
@@ -53,10 +53,30 @@ class OrdersViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
                 let payment = values?["payment"] as? Bool
                 let delivery = values?["delivery"] as? Bool
-                self.pickerCountry.append((values?["country"] as? String)!)
+                let priceString = values?["price"] as! String
+                let quantityString = values?["quantity"] as! String
+                let country = values?["country"] as? String
+                self.pickerCountry.append(country!)
                 
-                print("Status: \(payment)")
-
+                if  country == "China" {
+                    let price = Double(priceString)!/4.7
+                    let quantity = Double(quantityString)!
+                    let totalPrice = price*quantity
+                    self.totalPriceArray.append(totalPrice)
+                    print("X")
+                }
+                else if country == "USA" {
+                    
+                    let priceUS = Double(priceString)!*1.4
+                    let quantity = Double(quantityString)!
+                    let totalPriceUS = priceUS*quantity
+                    self.totalPriceArray.append(totalPriceUS)
+                    
+                }
+                let totalPriceToPay = self.totalPriceArray.reduce(0, +)
+                let roundedTotalPriceToPay = String(format: "%.2f", totalPriceToPay)
+                self.totalPriceLabel.text = "  Total Price: \(roundedTotalPriceToPay) SGD"
+                
                 if payment == false && delivery == false {
                     let order = [values!["url"],values!["price"],values!["quantity"],values!["remarks"],id.key]
                     self.pendingArray.append(order as! [String])
@@ -79,7 +99,6 @@ class OrdersViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         ordersTableView.delegate = self
         ordersTableView.dataSource = self
-
         let nib = UINib(nibName: "OrderCell", bundle: nil)
         ordersTableView.register(nib, forCellReuseIdentifier: "orderCell")
     }
@@ -115,24 +134,18 @@ class OrdersViewController: UIViewController, UITableViewDelegate, UITableViewDa
                 let price = Double(cellArray[indexPath.row][1])!/4.7
                 let quantity = Double(cellArray[indexPath.row][2])!
                 let totalPrice = price*quantity
-                totalPriceArray.append(totalPrice)
                 let roundedPrice = String(format: "%.2f", totalPrice)
                 cell.priceLabel.text = "Please Pay: \(roundedPrice)"
             } else if pickerCountry[indexPath.row] == "USA" {
                 let priceUS = Double(cellArray[indexPath.row][1])!*1.4
                 let quantity = Double(cellArray[indexPath.row][2])!
                 let totalPriceUS = priceUS*quantity
-                totalPriceArray.append(totalPriceUS)
                 let roundedPriceUS = String(format: "%.2f", totalPriceUS)
                 cell.priceLabel.text = "Please Pay: \(roundedPriceUS)"
             }
             cell.quantityLabel.text = "Quantity: \(cellArray[indexPath.row][2])"
             cell.remarksLabel.text = "Remarks: \(cellArray[indexPath.row][3])"
         }
-        
-        let totalPriceToPay = totalPriceArray.reduce(0, +)
-        let roundedTotalPriceToPay = String(format: "%.2f", totalPriceToPay)
-        totalPriceLabel.text = "  Total Price: \(roundedTotalPriceToPay) SGD"
         return cell
     }
     
@@ -153,7 +166,34 @@ class OrdersViewController: UIViewController, UITableViewDelegate, UITableViewDa
             ordersTableView.reloadData()
         }
     }
-
-
-
+    
+    func updateTotalPriceLabel() {
+         totalPriceLabel.text = "  Total Price:"
+            totalPriceArray = []
+            for item in pendingArray{
+                for country in pickerCountry {
+                    if country == "China" {
+                        let price = Double(item[1])!/4.7
+                        let quantity = Double(item[2])!
+                        let totalPrice = price*quantity
+                        totalPriceArray.append(totalPrice)
+                        print("X")
+                    }
+                    else if country == "USA" {
+                        
+                        let priceUS = Double(item[1])!*1.4
+                        let quantity = Double(item[2])!
+                        let totalPriceUS = priceUS*quantity
+                        totalPriceArray.append(totalPriceUS)
+                        
 }
+                }
+                    }
+        print("Pickercountry: \(pickerCountry)")
+        print("Price: \(totalPriceArray)")
+        let totalPriceToPay = totalPriceArray.reduce(0, +)
+        let roundedTotalPriceToPay = String(format: "%.2f", totalPriceToPay)
+        totalPriceLabel.text = "  Total Price: \(roundedTotalPriceToPay) SGD"
+    }
+}
+
