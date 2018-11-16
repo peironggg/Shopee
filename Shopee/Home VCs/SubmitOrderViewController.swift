@@ -10,7 +10,6 @@ import UIKit
 import FirebaseDatabase
 import FirebaseAuth
 import ChameleonFramework
-import JGProgressHUD
 import SimpleCheckbox
 
 class SubmitOrderViewController: UIViewController {
@@ -28,8 +27,6 @@ class SubmitOrderViewController: UIViewController {
         view.endEditing(true)
     }
     
-    var pickerData: [String] = [String]()
-    var pickerCountry: String?
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -40,7 +37,6 @@ class SubmitOrderViewController: UIViewController {
         quantityTextField.keyboardType = .asciiCapableNumberPad
 
         view.backgroundColor = HexColor("#e8f4f8")
-        pickerData = ["USA", "China"]
         submitButton.backgroundColor = FlatOrange()
         submitButton.setTitleColor(FlatWhite(), for: .normal)
         submitButton.titleLabel?.font = UIFont(name: "Roboto", size: 20)
@@ -59,6 +55,7 @@ class SubmitOrderViewController: UIViewController {
 
     }
     
+    
     @IBAction func submitOrderPressed(_ sender: Any) {
 
             if self.urlTextField.text?.isEmpty == false && self.priceTextField.text?.isEmpty == false && self.quantityTextField.text?.isEmpty == false && self.remarksTextField.text?.isEmpty == false {
@@ -66,11 +63,7 @@ class SubmitOrderViewController: UIViewController {
                 let alertAction2 = UIAlertAction(title: "Cancel", style: .default, handler: nil)
                 alertFirst.addAction(alertAction2)
                 let alertActionFirst = UIAlertAction(title: "Confirm", style: .default) { (action) in
-                    
-                    let hud = JGProgressHUD(style: .dark)
-                    hud.textLabel.text = "Success"
-                    hud.indicatorView = JGProgressHUDSuccessIndicatorView()
-                    hud.show(in: self.view)
+
                     let ref = Database.database().reference().child("users").child((Auth.auth().currentUser?.uid)!).child("orders").childByAutoId()
                     ref.setValue(["url":self.urlTextField.text!,"price":self.priceTextField.text!,"quantity":self.quantityTextField.text!,"remarks":self.remarksTextField.text!,"payment":false,"delivery":false])
                     if self.chinaCheckBox.isChecked == true {
@@ -83,7 +76,6 @@ class SubmitOrderViewController: UIViewController {
                         alert.addAction(alertAction)
                         self.present(alert, animated: true, completion: nil)
                     }
-                    hud.dismiss()
                     self.navigationController?.popViewController(animated: true)
                 }
         
