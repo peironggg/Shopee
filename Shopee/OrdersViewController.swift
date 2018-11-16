@@ -166,34 +166,5 @@ class OrdersViewController: UIViewController, UITableViewDelegate, UITableViewDa
             ordersTableView.reloadData()
         }
     }
-    
-    func updateTotalPriceLabel() {
-         totalPriceLabel.text = "  Total Price:"
-            totalPriceArray = []
-            for item in pendingArray{
-                for country in pickerCountry {
-                    if country == "China" {
-                        let price = Double(item[1])!/4.7
-                        let quantity = Double(item[2])!
-                        let totalPrice = price*quantity
-                        totalPriceArray.append(totalPrice)
-                        print("X")
-                    }
-                    else if country == "USA" {
-                        
-                        let priceUS = Double(item[1])!*1.4
-                        let quantity = Double(item[2])!
-                        let totalPriceUS = priceUS*quantity
-                        totalPriceArray.append(totalPriceUS)
-                        
-}
-                }
-                    }
-        print("Pickercountry: \(pickerCountry)")
-        print("Price: \(totalPriceArray)")
-        let totalPriceToPay = totalPriceArray.reduce(0, +)
-        let roundedTotalPriceToPay = String(format: "%.2f", totalPriceToPay)
-        totalPriceLabel.text = "  Total Price: \(roundedTotalPriceToPay) SGD"
-    }
 }
 

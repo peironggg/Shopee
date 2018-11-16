@@ -11,15 +11,17 @@ import FirebaseDatabase
 import FirebaseAuth
 import ChameleonFramework
 import JGProgressHUD
+import SimpleCheckbox
 
-class SubmitOrderViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class SubmitOrderViewController: UIViewController {
 
+    @IBOutlet weak var chinaCheckBox: Checkbox!
+    @IBOutlet weak var usaCheckBox: Checkbox!
     
     @IBOutlet weak var urlTextField: UITextField!
     @IBOutlet weak var priceTextField: UITextField!
     @IBOutlet weak var quantityTextField: UITextField!
     @IBOutlet weak var remarksTextField: UITextField!
-    @IBOutlet weak var countryPicker: UIPickerView!
     @IBOutlet weak var submitButton: UIButton!
     
     @objc func doneClicked() {
@@ -31,6 +33,9 @@ class SubmitOrderViewController: UIViewController, UIPickerViewDelegate, UIPicke
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        chinaCheckBox.checkmarkStyle = .tick
+        usaCheckBox.checkmarkStyle = .tick
+        
         priceTextField.keyboardType = .asciiCapableNumberPad
         quantityTextField.keyboardType = .asciiCapableNumberPad
 
@@ -39,10 +44,7 @@ class SubmitOrderViewController: UIViewController, UIPickerViewDelegate, UIPicke
         submitButton.backgroundColor = FlatOrange()
         submitButton.setTitleColor(FlatWhite(), for: .normal)
         submitButton.titleLabel?.font = UIFont(name: "Roboto", size: 20)
-        
-        countryPicker.delegate = self
-        countryPicker.dataSource = self
-        
+
         let toolBar = UIToolbar()
         toolBar.sizeToFit()
         
@@ -55,22 +57,6 @@ class SubmitOrderViewController: UIViewController, UIPickerViewDelegate, UIPicke
         remarksTextField.inputAccessoryView = toolBar
         
 
-    }
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerData.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pickerData[row]
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        pickerCountry = pickerData[row]
     }
     
     @IBAction func submitOrderPressed(_ sender: Any) {
@@ -86,10 +72,21 @@ class SubmitOrderViewController: UIViewController, UIPickerViewDelegate, UIPicke
                     hud.indicatorView = JGProgressHUDSuccessIndicatorView()
                     hud.show(in: self.view)
                     let ref = Database.database().reference().child("users").child((Auth.auth().currentUser?.uid)!).child("orders").childByAutoId()
-                    ref.setValue(["url":self.urlTextField.text!,"price":self.priceTextField.text!,"quantity":self.quantityTextField.text!,"remarks":self.remarksTextField.text!,"payment":false,"delivery":false,"country":self.pickerCountry!])
+                    ref.setValue(["url":self.urlTextField.text!,"price":self.priceTextField.text!,"quantity":self.quantityTextField.text!,"remarks":self.remarksTextField.text!,"payment":false,"delivery":false])
+                    if self.chinaCheckBox.isChecked == true {
+                        ref.child("country").setValue("China")
+                    } else if self.usaCheckBox.isChecked == true {
+                        ref.child("country").setValue("USA")
+                    } else {
+                        let alert = UIAlertController(title: "Error", message: "Please check the country.", preferredStyle: .alert)
+                        let alertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                        alert.addAction(alertAction)
+                        self.present(alert, animated: true, completion: nil)
+                    }
                     hud.dismiss()
                     self.navigationController?.popViewController(animated: true)
                 }
+        
                 alertFirst.addAction(alertActionFirst)
                 self.present(alertFirst, animated: true, completion: nil)
                
