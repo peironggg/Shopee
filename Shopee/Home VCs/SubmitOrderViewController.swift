@@ -16,6 +16,8 @@ class SubmitOrderViewController: UIViewController {
 
     @IBOutlet weak var chinaCheckBox: Checkbox!
     @IBOutlet weak var usaCheckBox: Checkbox!
+    @IBOutlet weak var airCheckBox: Checkbox!
+    @IBOutlet weak var seaCheckBox: Checkbox!
     
     @IBOutlet weak var urlTextField: UITextField!
     @IBOutlet weak var priceTextField: UITextField!
@@ -31,7 +33,24 @@ class SubmitOrderViewController: UIViewController {
         super.viewDidLoad()
         
         chinaCheckBox.checkmarkStyle = .tick
+        chinaCheckBox.checkmarkColor = .black
+        chinaCheckBox.checkedBorderColor = .black
+        chinaCheckBox.uncheckedBorderColor = .black
+        
         usaCheckBox.checkmarkStyle = .tick
+        usaCheckBox.checkmarkColor = .black
+        usaCheckBox.checkedBorderColor = .black
+        usaCheckBox.uncheckedBorderColor = .black
+        
+        airCheckBox.checkmarkStyle = .tick
+        airCheckBox.checkmarkColor = .black
+        airCheckBox.checkedBorderColor = .black
+        airCheckBox.uncheckedBorderColor = .black
+        
+        seaCheckBox.checkmarkStyle = .tick
+        seaCheckBox.checkmarkColor = .black
+        seaCheckBox.checkedBorderColor = .black
+        seaCheckBox.uncheckedBorderColor = .black
         
         priceTextField.keyboardType = .asciiCapableNumberPad
         quantityTextField.keyboardType = .asciiCapableNumberPad
@@ -66,16 +85,39 @@ class SubmitOrderViewController: UIViewController {
 
                     let ref = Database.database().reference().child("users").child((Auth.auth().currentUser?.uid)!).child("orders").childByAutoId()
                     ref.setValue(["url":self.urlTextField.text!,"price":self.priceTextField.text!,"quantity":self.quantityTextField.text!,"remarks":self.remarksTextField.text!,"payment":false,"delivery":false])
+                    
                     if self.chinaCheckBox.isChecked == true {
                         ref.child("country").setValue("China")
                     } else if self.usaCheckBox.isChecked == true {
                         ref.child("country").setValue("USA")
+                    } else if self.chinaCheckBox.isChecked == true && self.usaCheckBox.isChecked == true {
+                        let alert = UIAlertController(title: "Error", message: "Please check only one box.", preferredStyle: .alert)
+                        let alertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                        alert.addAction(alertAction)
+                        self.present(alert, animated: true, completion: nil)
                     } else {
                         let alert = UIAlertController(title: "Error", message: "Please check the country.", preferredStyle: .alert)
                         let alertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
                         alert.addAction(alertAction)
                         self.present(alert, animated: true, completion: nil)
                     }
+                    
+                    if self.airCheckBox.isChecked == true {
+                        ref.child("shipping").setValue("Air")
+                    } else if self.seaCheckBox.isChecked == true {
+                        ref.child("shipping").setValue("Sea")
+                    } else if self.airCheckBox.isChecked == true && self.seaCheckBox.isChecked == true {
+                        let alert = UIAlertController(title: "Error", message: "Please check only one box.", preferredStyle: .alert)
+                        let alertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                        alert.addAction(alertAction)
+                        self.present(alert, animated: true, completion: nil)
+                    } else {
+                        let alert = UIAlertController(title: "Error", message: "Please check the shipping.", preferredStyle: .alert)
+                        let alertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
+                        alert.addAction(alertAction)
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                    
                     self.navigationController?.popViewController(animated: true)
                 }
         

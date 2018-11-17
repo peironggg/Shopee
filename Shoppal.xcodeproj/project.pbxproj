@@ -23,6 +23,7 @@
 		E56751C32196BFCA008626D0 /* CustomMessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56751C12196BFCA008626D0 /* CustomMessageCell.swift */; };
 		E56751C42196BFCA008626D0 /* MessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E56751C22196BFCA008626D0 /* MessageCell.xib */; };
 		E56751C6219747CD008626D0 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = E56751C5219747CD008626D0 /* Message.swift */; };
+		E56751C9219FCDF9008626D0 /* Roboto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E56751C8219FCB69008626D0 /* Roboto.ttf */; };
 		E5E19C30217CA56400E3A02D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E19C2F217CA56400E3A02D /* AppDelegate.swift */; };
 		E5E19C32217CA56400E3A02D /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E19C31217CA56400E3A02D /* LogInViewController.swift */; };
 		E5E19C35217CA56400E3A02D /* Start.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5E19C33217CA56400E3A02D /* Start.storyboard */; };
@@ -46,12 +47,12 @@
 		E55D3764217DBD4700B67E43 /* Home.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
 		E55D3768217EB3A200B67E43 /* OrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderCell.swift; sourceTree = "<group>"; };
 		E55D3769217EB3A200B67E43 /* OrderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderCell.xib; sourceTree = "<group>"; };
-		E55D37712183141400B67E43 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Roboto-Black.ttf"; path = "../../../Desktop/Roboto-Black.ttf"; sourceTree = "<group>"; };
 		E560901E218C55C9004FFAE4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E56751BE2196BE50008626D0 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		E56751C12196BFCA008626D0 /* CustomMessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomMessageCell.swift; sourceTree = "<group>"; };
 		E56751C22196BFCA008626D0 /* MessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MessageCell.xib; sourceTree = "<group>"; };
 		E56751C5219747CD008626D0 /* Message.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
+		E56751C8219FCB69008626D0 /* Roboto.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Roboto.ttf; sourceTree = "<group>"; };
 		E5E19C2C217CA56400E3A02D /* Shoppal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Shoppal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5E19C2F217CA56400E3A02D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E5E19C31217CA56400E3A02D /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
@@ -122,7 +123,7 @@
 		E55D37702183140A00B67E43 /* Font */ = {
 			isa = PBXGroup;
 			children = (
-				E55D37712183141400B67E43 /* Roboto-Black.ttf */,
+				E56751C8219FCB69008626D0 /* Roboto.ttf */,
 			);
 			name = Font;
 			sourceTree = "<group>";
@@ -266,6 +267,7 @@
 				E5E19C42217CA5E700E3A02D /* GoogleService-Info.plist in Resources */,
 				E560901F218C55C9004FFAE4 /* Assets.xcassets in Resources */,
 				E56751C42196BFCA008626D0 /* MessageCell.xib in Resources */,
+				E56751C9219FCDF9008626D0 /* Roboto.ttf in Resources */,
 				E55D3765217DBD4700B67E43 /* Home.storyboard in Resources */,
 				E5E19C35217CA56400E3A02D /* Start.storyboard in Resources */,
 			);
@@ -492,7 +494,10 @@
 				DEVELOPMENT_TEAM = JS6NFR972X;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Shopee/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.peirong.Shopee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -511,7 +516,10 @@
 				DEVELOPMENT_TEAM = JS6NFR972X;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Shopee/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.peirong.Shopee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
