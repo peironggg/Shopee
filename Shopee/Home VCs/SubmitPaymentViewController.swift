@@ -7,16 +7,17 @@
 //
 
 import UIKit
-import FirebaseDatabase
-import FirebaseAuth
 import ChameleonFramework
 import JGProgressHUD
+import FirebaseStorage
+import FirebaseAuth
 
-class SubmitPaymentViewController: UIViewController {
+class SubmitPaymentViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
 
-    @IBOutlet weak var amountTextField: UITextField!
-    @IBOutlet weak var paymentTextField: UITextField!
+    @IBOutlet weak var imageButton: UIButton!
     @IBOutlet weak var submitButton: UIButton!
+    @IBOutlet weak var photoImageView: UIImageView!
+    let uid = Auth.auth().currentUser?.uid
     
     @objc func doneClicked() {
         view.endEditing(true)
@@ -25,12 +26,12 @@ class SubmitPaymentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        let bottomLayer = CALayer()
-//        bottomLayer.backgroundColor = FlatGray().lighten(byPercentage: 0.4)?.cgColor
-//        bottomLayer.frame = CGRect(x: 0, y: 100, width: view.frame.width, height: 2.0)
-//        amountTextField.layer.addSublayer(bottomLayer)
-        
+        print(uid!)
         view.backgroundColor = HexColor("#e8f4f8")
+        imageButton.backgroundColor = FlatGreen()
+        imageButton.setTitleColor(FlatWhite(), for: .normal)
+        imageButton.titleLabel?.font = UIFont(name: "Roboto", size: 20)
+        
         submitButton.backgroundColor = FlatOrange()
         submitButton.setTitleColor(FlatWhite(), for: .normal)
         submitButton.titleLabel?.font = UIFont(name: "Roboto", size: 20)
@@ -41,14 +42,13 @@ class SubmitPaymentViewController: UIViewController {
         let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneClicked))
         toolBar.setItems([flexibleSpace,doneButton], animated: true)
-        amountTextField.inputAccessoryView = toolBar
-        paymentTextField.inputAccessoryView = toolBar
+  
     }
     
     @IBAction func actualSubmitPaymentPressed(_ sender: Any) {
         
-        if amountTextField.text?.isEmpty == true || paymentTextField.text?.isEmpty == true {
-            let alert = UIAlertController(title: "Error", message: "Please fill in blanks.", preferredStyle: .alert)
+        if photoImageView.image == nil {
+            let alert = UIAlertController(title: "Error", message: "Please upload screenshot.", preferredStyle: .alert)
             let alertAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
             alert.addAction(alertAction)
             self.present(alert, animated: true, completion: nil)
@@ -61,8 +61,17 @@ class SubmitPaymentViewController: UIViewController {
             hud.textLabel.text = "Success"
             hud.indicatorView = JGProgressHUDSuccessIndicatorView()
             hud.show(in: self.view)
-            let ref = Database.database().reference().child("users").child((Auth.auth().currentUser?.uid)!).child("payments")
-                ref.childByAutoId().setValue(["amount":self.amountTextField.text!,"paymentID":self.paymentTextField.text!])
+            let tick = String(format: "%.0f", Date().timeIntervalSince1970)
+            let storageRef = Storage.storage().reference().child(self.uid!).child(tick).child("payment.jpg")
+                if let uploadData = self.photoImageView.image?.jpegData(compressionQuality: 0.6) {
+                    storageRef.putData(uploadData, metadata: nil, completion: { (metadata, error) in
+                        if error != nil {
+                            print(error!)
+                        }
+                    })
+                }
+                
+            //add upload image to firebase code here
             hud.dismiss()
             self.navigationController?.popViewController(animated: true)
             }
@@ -72,5 +81,19 @@ class SubmitPaymentViewController: UIViewController {
         
     }
     
-
+    @IBAction func uploadImagePressed(_ sender: UIButton) {
+        let image = UIImagePickerController()
+        image.delegate = self
+        image.sourceType = .photoLibrary
+        image.allowsEditing = false
+        self.present(image, animated: true)
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        if let chosenImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+        photoImageView.image = chosenImage
+        } else {
+            
+        }
+        self.dismiss(animated: true, completion: nil)
+    }
 }

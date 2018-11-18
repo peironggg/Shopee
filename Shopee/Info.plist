@@ -28,6 +28,8 @@
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>Do you allow Shoppal to access your photo album?</string>
 	<key>UIMainStoryboardFile</key>
 	<string>Start</string>
 	<key>UIRequiredDeviceCapabilities</key>
